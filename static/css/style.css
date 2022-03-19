@@ -1,0 +1,8 @@
+.card-name{
+    font-weight: 500 !important;
+}
+
+.hero-image{
+    background-image: url(/bluetit.jpg);
+    min-height: 600px;
+}

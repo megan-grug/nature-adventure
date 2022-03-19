@@ -27,7 +27,7 @@
                 <li><a href="#">Facts</a></li>
                 <li><a href="#">Log Out</a></li>
                 <li><a href="#">Log In</a></li>
-                <li><a href="#">Register</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
               </ul>
             </div>
           </nav>
@@ -40,17 +40,54 @@
             <li><a href="#">Facts</a></li>
             <li><a href="#">Log Out</a></li>
             <li><a href="#">Log In</a></li>
-            <li><a href="#">Register</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
           </ul> 
     </header>
-
+    {% block content %}
     <div class="hero-image">
       <img src= "https://res.cloudinary.com/megan-jones/image/upload/v1647698095/vincent-van-zalinge-vUNQaTtZeOo-unsplash_e284bw.jpg" width= "100%"/>
     </div>
 
 
-    <!--first row of creatures-->
+    <!--creatures grid-->
     <div class="row">
+      <!--first row of creatures - LATEST RECORDS (NOT COMPLETED YET)-->
+      {% for creature in creatures %}
+      <div class="col s12 m4 xl2">
+        <div class="card medium">
+          <div class="card-image">
+            <img src="{{ creature.pic }}">
+            <span class="card-title black-text card-name">{{ creature.name }}</span>
+          </div>
+          <div class="card-content black-text">
+            <p>{{ creature.summary }}</p>
+          </div>
+          <div class="card-action">
+            <a href="#">Read More...</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+      <!--first row of creatures - WHAT TO SEE NOW (NOT COMPLETED YET)-->
+      {% for creature in creatures %}
+      <div class="col s12 m4 xl2">
+        <div class="card medium">
+          <div class="card-image">
+            <img src="{{ creature.pic }}">
+            <span class="card-title black-text card-name">{{ creature.name }}</span>
+          </div>
+          <div class="card-content black-text">
+            <p>{{ creature.summary }}</p>
+          </div>
+          <div class="card-action">
+            <a href="#">Read More...</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+      <!--first row of creatures - COOL FACTS ABOUT (NOT COMPLETED YET)-->
       {% for creature in creatures %}
       <div class="col s12 m4 xl2">
         <div class="card medium">
@@ -68,7 +105,7 @@
       </div>
       {% endfor %}
     </div>
-
+    {% endblock %}
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" 

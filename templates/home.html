@@ -43,6 +43,24 @@
             <li><a href="{{ url_for('register') }}">Register</a></li>
           </ul> 
     </header>
+
+    <section>
+      <!--flash messages COPIED CODE FROM MINI PROJECT-->
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="row flashes">
+              <h4 class="light-blue lighten-4 center-align">
+                {{message}}
+              </h4>
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </section>
+
+
+    <!--main content for home page only-->
     {% block content %}
     <div class="hero-image">
       <img src= "https://res.cloudinary.com/megan-jones/image/upload/v1647698095/vincent-van-zalinge-vUNQaTtZeOo-unsplash_e284bw.jpg" width= "100%"/>

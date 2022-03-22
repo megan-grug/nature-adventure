@@ -23,7 +23,7 @@ mongo = PyMongo(app)
 def get_home():
     '''function to produce the home page'''
     creatures = mongo.db.creatures.find()
-    return render_template("home.html", creatures=creatures)
+    return render_template("index.html", creatures=creatures)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -48,7 +48,7 @@ def register():
         session["user"] = request.form.get("username").lower()
         flash("Registration successful!")
         return redirect(url_for(
-            "profile", username=session["user"]))
+            "records", username=session["user"]))
     return render_template("register.html")
 
 
@@ -69,7 +69,7 @@ def login():
                     flash("Welcome, {}".format(
                         request.form.get("username")))
                     return redirect(url_for(
-                        "profile", username=session["user"]))
+                        "records", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -83,14 +83,15 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
+@app.route("/records/<username>", methods=["GET", "POST"])
+def records(username):
     ''' grab the session user's username from db'''
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    records = mongo.db.records.find()
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("records.html", username=username, records=records)
     
     return redirect(url_for("login"))
 

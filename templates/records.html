@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<!--ALL THIS CODE CURRENTLY THE SAME AS MINI PROJECT-->
+
+
+<div class="row ">
+    <div class="col s12 m8 offset-m2">
+        <div class="card-panel">
+            <h3 class="center-align light-blue-text text-darken-4">
+                {{ username }}'s Records
+            </h3>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+<!--first row of creatures - WHAT TO SEE NOW (NOT COMPLETED YET)-->
+  {% for record in records %}
+  <div class="col s12 m4 xl2">
+    <div class="card medium">
+      <div class="card-image">
+        <img src="{{ record.pic }}">
+        <span class="card-title black-text card-name">{{ record.name }}</span>
+      </div>
+      <div class="card-content black-text">
+        <p>{{ record.summary }}</p>
+      </div>
+      <div class="card-action">
+        <a href="#">Read More...</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<div class="row">
+  <div class="col s12 m4 xl2">
+    <div class="card medium">
+      <div class="card-image">
+        <img src="https://res.cloudinary.com/megan-jones/image/upload/v1647682675/card%20images/wren_mini_iowtjj.jpg">
+        <span class="card-title black-text card-name">A WREN IS HERE</span>
+      </div>
+      <div class="card-content black-text">
+        <p>WRENS are SMALL</p>
+      </div>
+      <div class="card-action">
+        <a href="#">Read More...</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

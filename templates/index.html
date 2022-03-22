@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+<!--main content for home page only-->
+{% block content %}
+  <div class="hero-image">
+    <img src= "https://res.cloudinary.com/megan-jones/image/upload/v1647698095/vincent-van-zalinge-vUNQaTtZeOo-unsplash_e284bw.jpg" width= "100%"/>
+  </div>
+
+
+<!--creatures grid-->
+  <div class="row">
+<!--first row of creatures - LATEST RECORDS (NOT COMPLETED YET)-->
+  {% for creature in creatures %}
+    <div class="col s12 m4 xl2">
+      <div class="card medium">
+        <div class="card-image">
+          <img src="{{ creature.pic }}">
+          <span class="card-title black-text card-name">{{ creature.name }}</span>
+        </div>
+        <div class="card-content black-text">
+          <p>{{ creature.summary }}</p>
+        </div>
+        <div class="card-action">
+          <a href="#">Read More...</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+<!--first row of creatures - WHAT TO SEE NOW (NOT COMPLETED YET)-->
+  {% for creature in creatures %}
+    <div class="col s12 m4 xl2">
+      <div class="card medium">
+        <div class="card-image">
+          <img src="{{ creature.pic }}">
+          <span class="card-title black-text card-name">{{ creature.name }}</span>
+        </div>
+        <div class="card-content black-text">
+          <p>{{ creature.summary }}</p>
+        </div>
+        <div class="card-action">
+          <a href="#">Read More...</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+<!--first row of creatures - COOL FACTS ABOUT (NOT COMPLETED YET)-->
+  {% for creature in creatures %}
+    <div class="col s12 m4 xl2">
+      <div class="card medium">
+        <div class="card-image">
+          <img src="{{ creature.pic }}">
+          <span class="card-title black-text card-name">{{ creature.name }}</span>
+        </div>
+        <div class="card-content black-text">
+          <p>{{ creature.summary }}</p>
+        </div>
+        <div class="card-action">
+          <a href="#">Read More...</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+  {% endblock %}
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% block scripts %}
+    {% endblock %}
+</body>
+</html>

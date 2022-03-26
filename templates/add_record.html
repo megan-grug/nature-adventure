@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<!--ALL THIS CODE CURRENTLY THE SAME AS MINI PROJECT-->
+    <h3 class="center-align">Add a New Record</h3>
+
+    <div class="row">
+        <form class="col s12" method="POST" action="{{ url_for('add_record') }}">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-user-circle prefix"></i>
+                    <input type="text" id="autocomplete-input" class="autocomplete">
+                    <label for="autocomplete-input">What did you spot?</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="fas fa-calendar-alt prefix"></i>
+                    <input id="date_seen" name="date_seen" type="text" class="datepicker" required>
+                    <label for="date_seen">When did you spot it?</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                        Submit Record <i class="fas fa-plus-square right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}
+

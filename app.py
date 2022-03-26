@@ -65,11 +65,11 @@ def login():
             # ensure hashed password matches user input
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "records", username=session["user"]))
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "records", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -88,20 +88,51 @@ def records(username):
     ''' grab the session user's username from db'''
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    records = mongo.db.records.find()
+    myrecords = mongo.db.records.find()
 
     if session["user"]:
-        return render_template("records.html", username=username, records=records)
-    
+        return render_template(
+            "records.html", username=username, myrecords=myrecords)
+
     return redirect(url_for("login"))
 
 
 @app.route("/logout")
 def logout():
-    # remove user from session cookies
+    '''allows the user to log in'''
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/add_record", methods=["GET", "POST"])
+def add_record():
+    '''checks if the animal exists and if so copies it to user's records'''
+    if request.method == "POST":
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        existing_creature = mongo.db.creatures.find_one(
+            {"animal_name": request.form.get("autocomplete_input")}
+        )
+        if existing_creature:
+            user_record = {
+                "animal_name": existing_creature["animal_name"],
+                "latin_name": existing_creature["latin_name"],
+                "category_name": existing_creature["category_name"],
+                "summary": existing_creature["summary"],
+                "fact": existing_creature["summary"],
+                "date_seen": request.form.get("date_seen"),
+                "pic": existing_creature["pic"],
+                "author": session["user"]
+            }
+            mongo.db.records.insert_one(user_record)
+            flash("Record successfully added!")
+            return render_template(
+                "records.html", username=username, records=records)
+        else:
+            return "Uh oh no such bird"
+    else:
+        return render_template("add_record.html")
 
 
 if __name__ == "__main__":

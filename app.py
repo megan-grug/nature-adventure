@@ -88,8 +88,8 @@ def records(username):
     ''' grab the session user's username from db'''
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    
-    myrecords = mongo.db.records.find()
+    myrecords = mongo.db.records.find(
+        {"author": username})
 
     if session["user"]:
         return render_template(
@@ -113,8 +113,9 @@ def add_record():
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
         existing_creature = mongo.db.creatures.find_one(
-            {"animal_name": request.form.get("autocomplete_input")}
+            {"name": request.form.get("autocomplete_input")}
         )
+        print(existing_creature)
 
         if existing_creature:
             user_record = {
@@ -127,8 +128,8 @@ def add_record():
                 "pic": existing_creature["pic"],
                 "author": session["user"]
             }
-            mongo.db.records.insert_one(user_record)
-            flash("Record successfully added!")
+            # mongo.db.records.insert_one(user_record)
+            # flash("Record successfully added!")
             return render_template(
                 "records.html", username=username, records=records)
         else:

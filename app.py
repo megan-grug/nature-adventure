@@ -88,6 +88,7 @@ def records(username):
     ''' grab the session user's username from db'''
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    
     myrecords = mongo.db.records.find()
 
     if session["user"]:
@@ -114,9 +115,10 @@ def add_record():
         existing_creature = mongo.db.creatures.find_one(
             {"animal_name": request.form.get("autocomplete_input")}
         )
+
         if existing_creature:
             user_record = {
-                "animal_name": existing_creature["animal_name"],
+                "name": existing_creature["animal_name"],
                 "latin_name": existing_creature["latin_name"],
                 "category_name": existing_creature["category_name"],
                 "summary": existing_creature["summary"],

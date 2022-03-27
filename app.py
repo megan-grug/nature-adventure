@@ -83,26 +83,25 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/records/<username>", methods=["GET", "POST"])
-def records(username):
-    ''' grab the session user's username from db'''
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    myrecords = mongo.db.records.find(
-        {"author": username})
-
-    if session["user"]:
-        return render_template(
-            "records.html", username=username, myrecords=myrecords)
-
-    return redirect(url_for("login"))
-
-
 @app.route("/logout")
 def logout():
     '''allows the user to log in'''
     flash("You have been logged out")
     session.pop("user")
+    return redirect(url_for("login"))
+
+
+@app.route("/records/<username>", methods=["GET", "POST"])
+def records(username):
+    ''' grab the session user's username from db'''
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    myrecords = mongo.db.records.find({"author": username})
+
+    if session["user"]:
+        return render_template(
+            "records.html", username=username, myrecords=myrecords)
+
     return redirect(url_for("login"))
 
 
@@ -113,9 +112,9 @@ def add_record():
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
         existing_creature = mongo.db.creatures.find_one(
-            {"name": request.form.get("autocomplete_input")}
+            {"animal_name": request.form.get("autocomplete_input")}
         )
-        print(existing_creature)
+        location = request.form.get("txtLng")
 
         if existing_creature:
             user_record = {
@@ -126,14 +125,15 @@ def add_record():
                 "fact": existing_creature["summary"],
                 "date_seen": request.form.get("date_seen"),
                 "pic": existing_creature["pic"],
-                "author": session["user"]
+                "author": session["user"],
+                "location": location
             }
-            # mongo.db.records.insert_one(user_record)
-            # flash("Record successfully added!")
+            mongo.db.records.insert_one(user_record)
+            flash("Record successfully added!")
             return render_template(
                 "records.html", username=username, records=records)
         else:
-            return "Uh oh no such bird"
+            return "No such bird"
     else:
         return render_template("add_record.html")
 

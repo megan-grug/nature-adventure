@@ -245,3 +245,29 @@ $(document).ready(function () {
     },
   });
 });
+
+/*code from google maps api tutorial */
+var myLatlng = new google.maps.LatLng(54.00366,-2.54785);
+var mapOptions = {
+  zoom: 4,
+  center: myLatlng
+}
+var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+// Place a draggable marker on the map
+var marker = new google.maps.Marker({
+    position: myLatlng,
+    map: map,
+    draggable:true,
+    title:"Drag me!"
+});
+
+// adds a listener to the marker
+// gets the coords when drag event ends
+// then updates the input with the new coords
+google.maps.event.addListener(marker, 'dragend', function (evt) {
+  $("#txtLat").val(evt.latLng.lat().toFixed(6));
+  $("#txtLng").val(evt.latLng.lng().toFixed(6));
+
+  map.panTo(evt.latLng);
+});

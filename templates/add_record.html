@@ -19,14 +19,35 @@
             </div>
             <div class="row">
                 <div class="col s12 center-align">
+                    <div id="map"></div>
+                <input id="location" name="location" type="hidden" value=""/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center-align">
                     <button type="submit" class="btn-large light-blue darken-1 text-shadow">
                         Submit Record <i class="fas fa-plus-square right"></i>
                     </button>
                 </div>
             </div>
+            <div class="row">
+                <label for="latitude">
+                    Latitude:
+                </label>
+                <input id="txtLat" type="text" name="txtLat" style="color:red" value="28.47399" />
+                <label for="longitude">
+                    Longitude:
+                </label>
+                <input id="txtLng" name="txtLng" type="text" style="color:red" value="77.026489" /><br />
+            </div>
         </form>
     </div>
 
+    
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzW_j8EC1Ag7ZCIr4S_CiNSyzL_6DNQpc&callback=initMap&v=weekly"
+      async
+    ></script>
 
 {% endblock %}
 

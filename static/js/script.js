@@ -261,7 +261,7 @@ var marker = new google.maps.Marker({
     draggable:true,
     title:"Drag me!"
 });
-
+/* code is from: https://dotnettec.com/google-maps-draggable-marker/*/
 // adds a listener to the marker
 // gets the coords when drag event ends
 // then updates the input with the new coords

@@ -90,6 +90,21 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
+##########
+@app.route("/get_full_record")
+def get_full_record():
+    ''' grab the session user's username from db'''
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    record_id = request.args.get ("id") 
+    current_record = mongo.db.records.find({"_id": record_id})
+
+    if session["user"]:
+        return render_template(
+            "get_full_record.html", username=username, 
+            current_record=current_record)
+
+    return redirect(url_for("login"))
 
 @app.route("/records/<username>", methods=["GET", "POST"])
 def records(username):

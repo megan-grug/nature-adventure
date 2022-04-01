@@ -126,6 +126,7 @@ def add_record():
     if request.method == "POST":
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
+        myrecords = list(mongo.db.records.find({"author": username}))
         existing_creature = mongo.db.creatures.find_one(
             {"animal_name": request.form.get("autocomplete_input")}
         )
@@ -150,7 +151,7 @@ def add_record():
             mongo.db.records.insert_one(user_record)
             flash("Record successfully added!")
             return render_template(
-                "records.html", username=username, records=records)
+                "records.html", username=username, myrecords=myrecords)
         else:
             return "No such bird"
     else:
@@ -163,6 +164,7 @@ def edit_record(record_id):
     if request.method == "POST":
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
+        myrecords = list(mongo.db.records.find({"author": username}))
         existing_creature = mongo.db.creatures.find_one(
             {"animal_name": request.form.get("autocomplete_input")}
         )
@@ -188,11 +190,22 @@ def edit_record(record_id):
             edited_record)
             flash("Record successfully edited")
             return render_template(
-                "records.html", username=username, records=records)
+                "records.html", username=username, myrecords=myrecords)
         else:
             return "No such bird"
     record = mongo.db.records.find_one({"_id": ObjectId(record_id)})
     return render_template("edit_record.html", record=record)
+
+
+@app.route('/delete_record/<record_id>')
+def delete_record(record_id):
+    '''deletes record'''
+    mongo.db.records.delete_one({"_id": ObjectId(record_id)})
+    flash("Record successfully deleted")
+    username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+    myrecords = list(mongo.db.records.find({"author": username}))
+    return render_template("records.html", username=username, records=records)
 
 
 if __name__ == "__main__":

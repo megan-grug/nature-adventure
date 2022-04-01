@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<!--ALL THIS CODE CURRENTLY THE SAME AS MINI PROJECT-->
+    <h3 class="center-align">Edit A Record</h3>
+
+    <div class="row">
+        <form class="col s12" method="POST" action="{{ url_for('edit_record', record_id=record._id) }}">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-user-circle prefix"></i>
+                    <input type="text" id="autocomplete-input" class="autocomplete" name="autocomplete_input"
+                    value="{{ record.name }}">
+                    <label for="autocomplete-input">What did you spot?</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="fas fa-calendar-alt prefix"></i>
+                    <input id="date_seen" name="date_seen" type="text" class="datepicker" value="{{ record.date_seen }}" required>
+                    <label for="date_seen">When did you spot it?</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center-align">
+                    <div id="map"></div>
+                <input id="location" name="location" type="hidden" value=""/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                        Edit Record <i class="fas fa-plus-square right"></i>
+                    </button>
+                    <a href="{{ url_for('get_full_record', record_id=record._id) }}" class="btn-large red text-shadow">Cancel Changes</a>
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <label for="latitude">
+                    Latitude:
+                </label>
+                <input id="txtLat" type="text" name="txtLat" style="color:red" value="28.47399" />
+                <label for="longitude">
+                    Longitude:
+                </label>
+                <input id="txtLng" name="txtLng" type="text" style="color:red" value="77.026489" /><br />
+            </div>
+        </form>
+    </div>
+
+    
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk3r0Sgcsk5pEmIOLg4N8rS4NDL4uV2Kk&callback=initMap&v=weekly"
+      async
+    ></script>
+
+{% endblock %}
+

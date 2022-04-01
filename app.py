@@ -157,6 +157,44 @@ def add_record():
         return render_template("add_record.html")
 
 
+@app.route("/edit_record/<record_id>", methods=["GET", "POST"])
+def edit_record(record_id):
+    '''gets record and updates it'''
+    if request.method == "POST":
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        existing_creature = mongo.db.creatures.find_one(
+            {"animal_name": request.form.get("autocomplete_input")}
+        )
+        longitude = request.form.get("txtLng")
+        latitude = request.form.get("txtLat")
+
+        if existing_creature:
+            edited_record = {
+                "name": existing_creature["animal_name"],
+                "latin_name": existing_creature["latin_name"],
+                "category_name": existing_creature["category_name"],
+                "summary": existing_creature["summary"],
+                "fact": existing_creature["summary"],
+                "date_seen": request.form.get("date_seen"),
+                "pic": existing_creature["pic"],
+                "author": session["user"],
+                "location": {
+                    "type": "Point",
+                    "coordinates": [longitude, latitude]
+                }
+            }
+            mongo.db.records.replace_one({"_id": ObjectId(record_id)}, 
+            edited_record)
+            flash("Record successfully edited")
+            return render_template(
+                "records.html", username=username, records=records)
+        else:
+            return "No such bird"
+    record = mongo.db.records.find_one({"_id": ObjectId(record_id)})
+    return render_template("edit_record.html", record=record)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

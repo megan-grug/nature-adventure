@@ -94,14 +94,9 @@ def logout():
 @app.route("/get_full_record/<record_id>")
 def get_full_record(record_id):
     ''' grab the session user's username from db'''
-    
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    #record_id = request.args.get("id")
-    #single_location = mongo.db.locations.find_one({"_id": ObjectId(location_id)})
-    print(record_id)
     current_record = mongo.db.records.find_one({"_id": ObjectId(record_id)})
-    print(current_record)
 
     if session["user"]:
         return render_template(

@@ -85,53 +85,44 @@ def login():
 
 @app.route("/logout")
 def logout():
-    '''allows the user to log in'''
+    '''allows the user to log out'''
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
 
-##########
-@app.route("/get_full_record")
-def get_full_record():
+
+@app.route("/get_full_record/<record_id>")
+def get_full_record(record_id):
     ''' grab the session user's username from db'''
+    
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    record_id = request.args.get ("id") 
-    current_record = mongo.db.records.find({"_id": record_id})
+    #record_id = request.args.get("id")
+    #single_location = mongo.db.locations.find_one({"_id": ObjectId(location_id)})
+    print(record_id)
+    current_record = mongo.db.records.find_one({"_id": ObjectId(record_id)})
+    print(current_record)
 
     if session["user"]:
         return render_template(
-            "get_full_record.html", username=username, 
+            "get_full_record.html", username=username,
             current_record=current_record)
 
     return redirect(url_for("login"))
+
 
 @app.route("/records/<username>", methods=["GET", "POST"])
 def records(username):
     ''' grab the session user's username from db'''
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    myrecords = mongo.db.records.find({"author": username})
+    myrecords = list(mongo.db.records.find({"author": username}))
 
     if session["user"]:
         return render_template(
             "records.html", username=username, myrecords=myrecords)
 
     return redirect(url_for("login"))
-
-# drafting a new function to try to dynamically create pages for each record
-#@app.route("/records/<username>/<record_id>", methods=["GET", "POST"])
-#def display_record(username, record_id):
- #   username = mongo.db.users.find_one(
-  #      {"username": session["user"]})["username"]
-   # record_id = 
-    #myrecords = mongo.db.records.find({"author": username})
-
-    #if session["user"]:
-     #   return render_template(
-      #      "records.html", username=username, myrecords=myrecords)
-
-    #return redirect(url_for("login"))
 
 
 @app.route("/add_record", methods=["GET", "POST"])

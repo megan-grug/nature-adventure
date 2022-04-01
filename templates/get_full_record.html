@@ -1,19 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-<p>IT WORKS!</p>
-<!--
+
 <div class="row">
-      <div class="col s12 m4 xl2">
-        <div class="card medium">
-          <div class="card-image">
-            <img src="{{ current_record.pic }}">
-            <span class="card-title black-text card-name">{{ current_record.name }}</span>
-          </div>
-          <div class="card-content black-text">
-            <p>{{ current_record.summary }}</p>
-          </div>
+    <div class="col s12 m4 xl2">
+      <div class="card medium">
+        <div class="card-image">
+          <img src="{{ current_record.pic }}">
+          <span class="card-title black-text card-name">{{ current_record.name }}</span>
+        </div>
+        <div class="card-content black-text">
+          <p>{{ current_record.summary }}</p>
+        </div>
+        <div class="card-action">
+          <a href="{{ url_for('get_full_record', record_id=current_record._id) }}">View Full Record...</a>
         </div>
       </div>
     </div>
--->
+  </div>
+
+
 {% endblock %}

@@ -15,28 +15,33 @@ An example of how the homepage looks on various screensizes is included above.
 The site will be used by anyone who is looking for a place to record what wildlife they have seen, refer back to those records and learn more about wildlife. 
 
 
-### Students (User A)
+### Experienced Birders (User A)
 **Goals:**
-- Create and keep track of a to do list;
-- Stay focused on the tasks at hand;
-- Keep track of time;
-- More likely to be working from a variety of places: classrooms, library, at home, and therefore likely to benefit from the ability to access the site on a mobile device. 
-- Users of the site are likely to be very busy individuals and therefore it is important that the site is user friendly and intuitive and that it isn't going to take a long time to understand how it works. 
+- Create a record of which birds they have seen;
+- Review their list;
+- Add notes to their bird records;
+- A higher proportion of this group are likely to be older users and therefore:
+    - They may be more likely to use a desktop version of the site. It is important that full functionality is available on the desktop version. 
+    - They may be less experienced web users and it is therefore important that the site is user friendly and not over complicated. 
+- This user group is more likely to want and appreciate more advanced features. 
 
-### Professionals (User B)
+### New Birders (User B)
 **Goals:**
-- Create and keep track of a to do list;
-- Stay focused on the tasks at hand;
-- Keep track of time;
-- More likely to be working from a desktop or laptop computer alongside other windows and likely to benefit from being able to resize the browser window to fit in alongside other work. 
-- If working in the office around colleagues it is important that the site is clearly work based. 
+- Create a record of which birds they have seen;
+- Review their list;
+- Find information about birds;
+- Get suggestions for what to look for when/where to see certain birds. 
+- A higher proportion of this group is likely to be younger and therefore:
+    - They may be more likely to use the site on mobile at the time of the sighting, so it is important that the mobile version is clear and quick to use on site. 
+    - This group may include children, so it is important to make the site intuitive and not over-complicate it.
+
 
 ## STRATEGY PLANE:
 
 **Project Purpose from the perspective of the site owners:**
 
 
-- Provide a one stop productivity dashboard. 
+- Provide a site which can bring together people of all ages and backgrounds with an interest in nature by giving them a place to record their bird sightings. 
 
     - **Strategy:** I will do this by keeping the main content of the site to one page to avoid distraction from navigating around the site. The to do list feature  and will be prominently displayed on the main page so that users can always see the tasks they are working on and keep an eye on the time as these are the most important features.
 
@@ -65,7 +70,7 @@ The site will be used by anyone who is looking for a place to record what wildli
 | View location data as part of record          |     3       |     1       |
 | Include birdsong as part of record            |     1       |     2       |
                
-After my initial research, I have decided not to attempt to include birdssong mp3s as part of the records in this project as I ran out of time. 
+After my initial research, I have decided not to attempt to include birdssong mp3s as part of the records in this project as I don't feel it will add enough to the project in comparison with the amount of time it would take to try to source good quality birdsong recordings for over 200 species of birds. 
 
 
 ## SCOPE PLANE:
@@ -110,7 +115,7 @@ The navigation structure I chose to pursue was based on simplicity to help the u
 ## SURFACE PLANE
 
 **Colour scheme:**
-- I chose a muted colour scheme for most of the page components in keeping with the 'nature' theme in place, but selected brighter colours for the feature icons and used icons with thick black line borders to represent the features in order to draw attention to them. 
+- I chose a bright green colour scheme for most of the page components in keeping with the 'nature' theme in place, and I kept to this colour scheme for buttons etc to ensure that they stand out well against the plain background. I have stuck to plain backgrounds because the site involves large amounts of information (for example, the bird record cards) and I felt this stopped the site from looking too busy and cluttered. 
 
 **Typography:**
 - For this project I have chosen plain, professional fonts for the main body of the site to keep the pages visually calming and avoid distractions. I used a heavier font (Urbanist) for the descriptions in the icons leading to the features so as to make it very clear what they do. I chose a more classical font for the quote section to encourage users to take their time to consider the quote.
@@ -132,20 +137,32 @@ The navigation structure I chose to pursue was based on simplicity to help the u
 -	**Materialize CSS:**
 Used for consistent styling and responsiveness. 
 
+-   **Flask:**
+Used for creating and running a Python server side project.
+
+-   **Jinja:**
+Used to inject logic inside of HTML templates. 
+
 -   **jQuery:**
-Used to provide neat interactivity, for example the 'slide down' of the features. 
+Used to provide neat interactivity.
 
 -	**Google Fonts:**
 Used to import custom fonts Mate SC and Atkinson Hyperlegible as referred to above. 
 
+-   **Google Maps Javascript API:**
+Used to capture and display maps and location data as part of the bird records. 
+
 -	**Font Awesome:**
-Used to import icons used to create custom buttons, such as the delete button for the to do list.
+Used to import icons to create custom buttons.
 
 -	**Git:**
 Used for version control between GitPod and GitHub.
 
 -	**GitHub:**
 Used to store and deploy the project. 
+
+-   **Heroku:**
+Used to deploy project externally.
 
 -	**Moqups:**
 Used to create initial wireframes as part of the planning and designing stage. 
@@ -166,6 +183,8 @@ Used to inspect each page and function of the site and to check each element and
 - **W3C CSS Validator:**
     
     The code passes through the W3C CSS Validator without raising any errors. 
+
+- **PEP8 Python Validator:**
 
 - **Lighthouse:**
     The site returns passing scores on all counts when passed through Lighthouse for both desktop and mobile. 
@@ -289,9 +308,9 @@ Manual testing was undertaken on the following browsers with no noticable differ
 
 ## DEPLOYMENT
 
-**GITHUB PAGES**
+**HEROKU**
 
-The project was deployed to GitHub Pages as follows:
+The project was deployed to Heroku as follows:
 
 - Log in to GitHub;
 
@@ -350,18 +369,12 @@ This will allow you to make changes to the project without affecting the origina
 Code for capturing latitude and longitude is from [Dotnettec](https://dotnettec.com/google-maps-draggable-marker/).
 
 
-Code for the flipclock is from OBJECTIVEHTML at [GitHub](https://github.com/objectivehtml/FlipClock) Copyright (c) 2013 Objective HTML, LCC shared under MIT LICENSE.
-
-Code to remove a specific item from an array for the 'giveUp' function called by the Delete All button is from user Lioness100 at [Stack Overflow page](https://stackoverflow.com/questions/5767325/how-can-i-remove-a-specific-item-from-an-array).
-
-
-Code for the clock function is from user ahmadulla at [Dev To](https://dev.to/ahmadullahnikzad/how-to-create-digital-clock-in-vanilla-js-2172). 
 
 ### Media Credits
 
 
 **Favicon:**    
-The emoji graphic 'Hourglass Not Done' is from the open source project Twemoji. The graphics are copyright 2020 Twitter, Inc and other contributors. The graphics are licensed under CC-BY 4.0.
+The emoji graphic 'Front Facing Baby Chick' is from the open source project Twemoji. The graphics are copyright 2020 Twitter, Inc and other contributors. The graphics are licensed under CC-BY 4.0.
 The various sizes of Favicon were produced and downloaded at favicon.io.
 
 **Photographs:**
@@ -402,7 +415,7 @@ Free to use under licence from Unsplash.
 
 All written by the developer.
 
-Bird illustrations by [ ] obtained from RSBP website.   
+Bird illustrations by [Mike Langman](https://mikelangman.co.uk/) obtained from [RSBP website](https://www.rspb.org.uk/).   
 
 
 ### Acknowledgements

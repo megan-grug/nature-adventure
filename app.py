@@ -22,8 +22,8 @@ mongo = PyMongo(app)
 @app.route("/get_home")
 def get_home():
     '''function to produce the home page'''
-    creatures = mongo.db.creatures.find()
-    return render_template("index.html", creatures=creatures)
+    recent_records = mongo.db.records.find().sort("date_seen", -1).limit(6)
+    return render_template("index.html", recent_records=recent_records)
 
 
 @app.route("/register", methods=["GET", "POST"])

@@ -4,24 +4,28 @@
 
 
   <!-- background image -->
-<img class="gfg" src="https://res.cloudinary.com/megan-jones/image/upload/v1647698095/vincent-van-zalinge-vUNQaTtZeOo-unsplash_e284bw.jpg">
+<div class="hero">
 
-
+</div>
              
 
 <!--creatures grid-->
-  
   <div class="row">
-  {% for creature in creatures %}
+    <div class="col s12">
+      <h3>Recently Added Records</h3>
+    </div>
+  </div>
+  <div class="row">
+  {% for record in recent_records %}
   <!--first row of creatures - LATEST RECORDS (NOT COMPLETED YET)-->
     <div class="col s12 m4 xl2">
       <div class="card medium">
-        <div class="card-image">
-          <img src="{{ creature.pic }}">
-          <span class="card-title black-text card-name">{{ creature.animal_name }}</span>
+        <div class="card-image center bird-card">
+          <img src="{{ record.pic }}">
+          <span class="card-title black-text card-name">{{ record.name }}</span>
         </div>
         <div class="card-content black-text">
-          <p>{{ creature.summary }}</p>
+          <p class="truncate">{{ record.summary }}</p>
         </div>
         <div class="card-action">
           <a href="#">Read More...</a>

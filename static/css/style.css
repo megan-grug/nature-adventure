@@ -2,17 +2,18 @@
     font-weight: 500 !important;
 }
 
-.gfg {
-    width: 100%;
+.hero{
+    background-image: url("https://res.cloudinary.com/megan-jones/image/upload/v1647698095/vincent-van-zalinge-vUNQaTtZeOo-unsplash_e284bw.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 85vh;
 }
+/*(https://source.unsplash.com/1600x900?bird)*/
 
 .bird-card{
     width:60%;
     height:60%;
-}
-
-.creature-summary{
-    height: 500px !important;
 }
 
 /* Set the size of the div element that contains the map */

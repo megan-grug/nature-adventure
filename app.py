@@ -150,6 +150,7 @@ def add_record():
             }
             mongo.db.records.insert_one(user_record)
             flash("Record successfully added!")
+            myrecords = list(mongo.db.records.find({"author": username}))
             return render_template(
                 "records.html", username=username, myrecords=myrecords)
         else:

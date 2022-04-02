@@ -28,7 +28,7 @@
                 <li><a href="#">What to See Now</a></li>
                 <li><a href="#">Facts</a></li>
                 {% if session.user %}
-                <li><a href="{{ url_for('records', username=session['user']) }}">My Finds</a></li>
+                <li><a href="{{ url_for('records', username=session['user']) }}">My Records</a></li>
                 <li><a href="{{ url_for('add_record') }}">Add Record</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                 {% else %}

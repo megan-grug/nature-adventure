@@ -1,5 +1,6 @@
 $(document).ready(function () {
   $(".sidenav").sidenav();
+  $('.tooltipped').tooltip();
   $(".datepicker").datepicker({
       format: "dd mmm, yyyy",
       yearRange: 10,

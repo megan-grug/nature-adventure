@@ -6,6 +6,15 @@
     width: 100%;
 }
 
+.bird-card{
+    width:60%;
+    height:60%;
+}
+
+.creature-summary{
+    height: 500px !important;
+}
+
 /* Set the size of the div element that contains the map */
 #map {
     height: 500px;

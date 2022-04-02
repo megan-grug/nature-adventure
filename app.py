@@ -187,9 +187,10 @@ def edit_record(record_id):
                     "coordinates": [longitude, latitude]
                 }
             }
-            mongo.db.records.replace_one({"_id": ObjectId(record_id)}, 
-            edited_record)
+            mongo.db.records.replace_one({"_id": ObjectId(record_id)},
+                                         edited_record)
             flash("Record successfully edited")
+            myrecords = list(mongo.db.records.find({"author": username}))
             return render_template(
                 "records.html", username=username, myrecords=myrecords)
         else:
@@ -201,12 +202,13 @@ def edit_record(record_id):
 @app.route('/delete_record/<record_id>')
 def delete_record(record_id):
     '''deletes record'''
-    mongo.db.records.delete_one({"_id": ObjectId(record_id)})
-    flash("Record successfully deleted")
     username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
+    mongo.db.records.delete_one({"_id": ObjectId(record_id)})
+    flash("Record successfully deleted")
     myrecords = list(mongo.db.records.find({"author": username}))
-    return render_template("records.html", username=username, records=records)
+    return render_template("records.html", username=username,
+                           myrecords=myrecords)
 
 
 if __name__ == "__main__":

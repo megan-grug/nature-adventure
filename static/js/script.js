@@ -293,7 +293,7 @@ function showLocation()
 
      const marker = new google.maps.Marker (
        {
-       position : myLatLng, 
+       position : myLatLng,  
        map,   
        draggable:true,
        title    :"Drag me!"
@@ -307,6 +307,8 @@ function showLocation()
         map.panTo(evt.latLng);
       });
    }
+
+   showLocation();
 
 
 

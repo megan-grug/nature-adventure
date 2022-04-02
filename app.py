@@ -6,6 +6,7 @@ from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
+import datetime as dt
 
 
 app = Flask(__name__)
@@ -23,7 +24,14 @@ mongo = PyMongo(app)
 def get_home():
     '''function to produce the home page'''
     recent_records = mongo.db.records.find().sort("date_seen", -1).limit(6)
-    return render_template("index.html", recent_records=recent_records)
+    today = dt.date.today()
+    current_month = today.month
+    print(current_month)
+    current_month_birds = list(mongo.db.creatures.find({"best_month": current_month}))
+    print(current_month_birds)
+
+    return render_template("index.html", recent_records=recent_records,
+                           current_month_birds=current_month_birds)
 
 
 @app.route("/register", methods=["GET", "POST"])

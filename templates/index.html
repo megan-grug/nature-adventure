@@ -17,7 +17,7 @@
   </div>
   <div class="row">
   {% for record in recent_records %}
-  <!--first row of creatures - LATEST RECORDS (NOT COMPLETED YET)-->
+  <!--first row of creatures - LATEST RECORDS-->
     <div class="col s12 m4 xl2">
       <div class="card medium">
         <div class="card-image center bird-card">
@@ -26,6 +26,31 @@
         </div>
         <div class="card-content black-text">
           <p class="truncate">{{ record.summary }}</p>
+        </div>
+        <div class="card-action">
+          <a href="#">Read More...</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <h3>What To Look For This Month</h3>
+    </div>
+  </div>
+  <div class="row">
+  {% for bird in current_month_birds %}
+  <!--first row of creatures - WHAT TO SEE NOW-->
+    <div class="col s12 m4 xl2">
+      <div class="card medium">
+        <div class="card-image center bird-card">
+          <img src="{{ bird.pic }}">
+          <span class="card-title black-text card-name">{{ bird.name }}</span>
+        </div>
+        <div class="card-content black-text">
+          <p class="truncate">{{ bird.summary }}</p>
         </div>
         <div class="card-action">
           <a href="#">Read More...</a>

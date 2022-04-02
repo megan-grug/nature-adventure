@@ -38,7 +38,6 @@ $(document).ready(function () {
       "Pink-Footed Goose": null,
       "Bean Goose": null,
       "White-Fronted Goose": null,
-      "Bean Goose": null,
       "Shelduck": null,
       "Mallard": null,
       "Gadwall": null,
@@ -246,43 +245,68 @@ $(document).ready(function () {
   });
 });
 
+
+
+
 /*code from google maps api tutorial */
-var myLatlng = new google.maps.LatLng(54.00366,-2.54785);
+/*var myLatlng = new google.maps.LatLng(54.00366,-2.54785);
 var mapOptions = {
   zoom: 4,
   center: myLatlng
-}
+};
 var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
+*/
 // Place a draggable marker on the map
+/*
 var marker = new google.maps.Marker({
     position: myLatlng,
     map: map,
     draggable:true,
     title:"Drag me!"
 });
+*/
+
 /* code is from: https://dotnettec.com/google-maps-draggable-marker/*/
 // adds a listener to the marker
 // gets the coords when drag event ends
 // then updates the input with the new coords
-google.maps.event.addListener(marker, 'dragend', function (evt) {
+/*google.maps.event.addListener(marker, 'dragend', function (evt) {
   $("#txtLat").val(evt.latLng.lat().toFixed(6));
   $("#txtLng").val(evt.latLng.lng().toFixed(6));
 
   map.panTo(evt.latLng);
-});
+});*/
+let txtLat = null;
+let txtLng = null;
 
-function showLocation() {
-  const myLatLng = { lat: -25.363, lng: 131.044 };
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 4,
-    center: myLatLng,
-  });
+function showLocation() 
+   {
+     txtLat = document.getElementById("txtLat");
+     txtLng = document.getElementById("txtLng");
 
-  new google.maps.Marker({
-    position: myLatLng,
-    map,
-    title: "Hello World!",
-  });
-}
+     const myLatLng = { lat: 54.00366, lng: -2.54785 };
+     const map      = new google.maps.Map(document.getElementById("map"), 
+        {
+         zoom: 4,
+         center: myLatLng,
+        });
+
+     const marker = new google.maps.Marker (
+       {
+       position : myLatLng, 
+       map,   
+       draggable:true,
+       title    :"Drag me!"
+       });
+
+      google.maps.event.addListener(marker, 'dragend', function (evt) 
+      {
+        txtLat.value = evt.latLng.lat().toFixed(6);
+        txtLng.value = evt.latLng.lng().toFixed(6);
+
+        map.panTo(evt.latLng);
+      });
+   }
+
+
 

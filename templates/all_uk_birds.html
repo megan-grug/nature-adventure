@@ -6,8 +6,9 @@
 <!--main content for all UK birds page only-->
 
 
-<!--creatures grid-->
-  <div class="row">
+<!--search function-->
+<div class="container record-buffer">
+  <div class="row card-panel grey lighten-5">
     <form action="{{ url_for('search') }}" method="post" class="col s12"}}>
         <div class="row valign-wrapper center-align">
             <div class="input-field col s12 m8">
@@ -16,41 +17,45 @@
                 <label for="query" class="black-text">Search Birds</label>
             </div>
             <div class="col s12 m4">
-                <a href="{{ url_for('all_uk_birds') }}" class="red btn text-shadow">Reset</a>
-                <button type="submit" class="light-blue darken-1 btn text-shadow">
+                <button type="submit" class="light-blue darken-4 btn text-shadow">
                     <i class="fas fa-search left"></i>Search
                 </button>
+                <a href="{{ url_for('all_uk_birds') }}" class="teal-darken-4 btn text-shadow">Reset</a>
             </div>
         </div>
     </form>
   </div>
 
+
+  <!--grid showing bird records-->
   {% if all_birds %}
-    <div class="row card-panel grey lighten-5">
+    <div class="row card-panel grey lighten-5 center">
         <div class="col s12">
         <h3>All UK Birds</h3>
         </div>
     </div>
+</div>
+
 
     <div class="row">
     {% for bird in all_birds %}
-    <!--first row of creatures - LATEST RECORDS-->
         <div class="col s12 m4 xl2">
         <div class="card medium">
             <div class="card-image center bird-card">
-            <img src="{{ bird.pic }}" alt="illustration of {{ bird.name }}">
-            <span class="card-title black-text card-name">{{ bird.name }}</span>
+              <img src="{{ bird.pic }}" alt="illustration of {{ bird.name }}">
+              <span class="card-title black-text card-name">{{ bird.animal_name }}</span>
             </div>
             <div class="card-content black-text">
-            <p class="truncate">{{ bird.summary }}</p>
+              <p class="truncate">{{ bird.summary }}</p>
             </div>
             <div class="card-action">
-            <a href="{{ url_for('extend_entry', record_id=bird._id) }}">Read More...</a>
+              <a href="{{ url_for('extend_entry', record_id=bird._id) }}" class="waves-effect waves-light btn center">Read More...</a>
             </div>
         </div>
         </div>
     {% endfor %}
     </div>
+  
   {% else %}
     <h3 class="red-text text-darken-4 center-align">No Result Found</h3>
   {% endif%}

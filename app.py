@@ -37,7 +37,14 @@ def get_home():
 def all_uk_birds():
     '''function to populate the all birds page'''
     all_birds = mongo.db.creatures.find()
-    print(all_birds)
+    return render_template("all_uk_birds.html", all_birds=all_birds)
+
+
+@app.route("/search", methods=["GET","POST"])
+def search():
+    '''function to search through all uk birds'''
+    query = request.form.get("query")
+    all_birds = list(mongo.db.creatures.find({"$text": {"$search": query}}))
     return render_template("all_uk_birds.html", all_birds=all_birds)
 
 
@@ -170,7 +177,7 @@ def add_record():
                 "date_seen": request.form.get("date_seen"),
                 "pic": existing_creature["pic"],
                 "author": session["user"],
-                "notes" : notes,
+                "notes": notes,
                 "location": {
                     "type": "Point",
                     "coordinates": [longitude, latitude]

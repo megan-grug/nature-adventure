@@ -2,6 +2,10 @@
     font-weight: 500 !important;
 }
 
+.record-buffer{
+    margin-top: 100px;
+}
+
 .hero{
     background-image: url("https://res.cloudinary.com/megan-jones/image/upload/v1647698095/vincent-van-zalinge-vUNQaTtZeOo-unsplash_e284bw.jpg");
     background-position: center;

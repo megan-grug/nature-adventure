@@ -101,6 +101,7 @@ def logout():
 @app.route("/get_full_record/<record_id>")
 def get_full_record(record_id):
     ''' grab the session user's username from db'''
+    google_api = os.environ.get("GOOGLE_API")
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     current_record = mongo.db.records.find_one({"_id": ObjectId(record_id)})
@@ -108,7 +109,7 @@ def get_full_record(record_id):
     if session["user"]:
         return render_template(
             "get_full_record.html", username=username,
-            current_record=current_record)
+            current_record=current_record, google_api=google_api)
 
     return redirect(url_for("login"))
 
@@ -130,6 +131,7 @@ def records(username):
 @app.route("/add_record", methods=["GET", "POST"])
 def add_record():
     '''checks if the animal exists and if so copies it to user's records'''
+    google_api = os.environ.get("GOOGLE_API")
     if request.method == "POST":
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
@@ -159,11 +161,12 @@ def add_record():
             flash("Record successfully added!")
             myrecords = list(mongo.db.records.find({"author": username}))
             return render_template(
-                "records.html", username=username, myrecords=myrecords)
+                "records.html", username=username, myrecords=myrecords,
+                google_api=google_api)
         else:
             return "No such bird"
     else:
-        return render_template("add_record.html")
+        return render_template("add_record.html", google_api=google_api)
 
 
 @app.route("/edit_record/<record_id>", methods=["GET", "POST"])

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row" onload="showLocation()">
+<div class="row record-buffer">
     <div class="col s8 offset-s2">
       <img src="{{ current_record.pic }}" class="center responsive-img">
       <span class="card-title black-text card-name">{{ current_record.name }}</span>
@@ -23,7 +23,4 @@
     </div>
   </div>
   
-
-  
-
 {% endblock %}

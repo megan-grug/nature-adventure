@@ -24,7 +24,7 @@ mongo = PyMongo(app)
 def get_home():
     '''function to produce the home page'''
     recent_records = mongo.db.records.find().sort("date_seen", -1).limit(6)
-    month = dt.date.today().month
+    month = str(dt.date.today().month)
     print(month)
     current_month_birds = list(mongo.db.creatures.find({"best_month": month}))
     print(current_month_birds)

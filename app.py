@@ -158,6 +158,7 @@ def add_record():
         )
         longitude = request.form.get("txtLng")
         latitude = request.form.get("txtLat")
+        notes = request.form.get("notes")
 
         if existing_creature:
             user_record = {
@@ -169,6 +170,7 @@ def add_record():
                 "date_seen": request.form.get("date_seen"),
                 "pic": existing_creature["pic"],
                 "author": session["user"],
+                "notes" : notes,
                 "location": {
                     "type": "Point",
                     "coordinates": [longitude, latitude]

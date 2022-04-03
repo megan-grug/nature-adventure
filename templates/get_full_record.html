@@ -16,6 +16,9 @@
       <p>Recorded By: {{ current_record.author }}</p>
     </div>
     <div class="col s8 offset-s2">
+      <p>Notes: {{ current_record.notes }}</p>
+    </div>
+    <div class="col s8 offset-s2">
       {% if session.user|lower == current_record.author|lower %}
       <a href="{{ url_for('edit_record', record_id=current_record._id ) }}" class="waves-effect waves-light btn">Edit</a>
       <a href="{{ url_for('delete_record', record_id=current_record._id ) }}" class="waves-effect waves-light btn">Delete</a>

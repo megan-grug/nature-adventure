@@ -23,7 +23,7 @@ mongo = PyMongo(app)
 @app.route("/get_home")
 def get_home():
     '''function to produce the home page'''
-    recent_records = mongo.db.records.find().sort("date_seen", -1).limit(6)
+    recent_records = mongo.db.records.find().sort("date_seen", 1).limit(6)
     month = str(dt.date.today().month)
     print(month)
     current_month_birds = list(mongo.db.creatures.find({"best_month": month}))
@@ -31,6 +31,14 @@ def get_home():
 
     return render_template("index.html", recent_records=recent_records,
                            current_month_birds=current_month_birds)
+
+
+@app.route("/all_uk_birds")
+def all_uk_birds():
+    '''function to populate the all birds page'''
+    all_birds = mongo.db.creatures.find()
+    print(all_birds)
+    return render_template("all_uk_birds.html", all_birds=all_birds)
 
 
 @app.route("/register", methods=["GET", "POST"])

@@ -309,11 +309,11 @@ function showLocation()
       });
    }
 
-   showLocation();
+showLocation();
 
 
 
-function showLocation() 
+function customMarker() 
    {
      txtLat = document.getElementById("latitude");
      txtLng = document.getElementById("longitude");
@@ -333,4 +333,5 @@ function showLocation()
        });
    }
 
+  customMarker();
 

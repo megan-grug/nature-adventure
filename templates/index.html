@@ -28,7 +28,7 @@
           <p class="truncate">{{ record.summary }}</p>
         </div>
         <div class="card-action">
-          <a href="#">Read More...</a>
+          <a href="{{ url_for('get_full_record', record_id=record._id) }}">View Full Record...</a>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import os
+import datetime as dt
 from flask import (
     Flask, flash, render_template, redirect, request, session, url_for)
 from flask_pymongo import PyMongo
@@ -6,7 +7,6 @@ from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
-import datetime as dt
 
 
 app = Flask(__name__)
@@ -24,10 +24,9 @@ mongo = PyMongo(app)
 def get_home():
     '''function to produce the home page'''
     recent_records = mongo.db.records.find().sort("date_seen", -1).limit(6)
-    today = dt.date.today()
-    current_month = today.month
-    print(current_month)
-    current_month_birds = list(mongo.db.creatures.find({"best_month": current_month}))
+    month = dt.date.today().month
+    print(month)
+    current_month_birds = list(mongo.db.creatures.find({"best_month": month}))
     print(current_month_birds)
 
     return render_template("index.html", recent_records=recent_records,
@@ -46,11 +45,11 @@ def register():
             flash("Username already exists")
             return redirect(url_for("register"))
 
-        register = {
+        registration = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
-        mongo.db.users.insert_one(register)
+        mongo.db.users.insert_one(registration)
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()

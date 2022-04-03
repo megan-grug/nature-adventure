@@ -122,6 +122,15 @@ def get_full_record(record_id):
     return redirect(url_for("login"))
 
 
+@app.route("/extend_entry/<record_id>")
+def extend_entry(record_id):
+    ''' grab the bird's object id from db'''
+    bird = mongo.db.creatures.find_one({"_id": ObjectId(record_id)})
+    print(bird)
+    return render_template(
+            "extend_entry.html", bird=bird)
+
+
 @app.route("/records/<username>", methods=["GET", "POST"])
 def records(username):
     ''' grab the session user's username from db'''

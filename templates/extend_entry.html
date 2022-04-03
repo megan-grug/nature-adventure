@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row record-buffer">
+    <div class="col s8 offset-s2">
+      <img src="{{ bird.pic }}" class="center responsive-img">
+      <span class="card-title black-text card-name">{{ bird.animal_name }}</span>
+      <p>{{ bird.summary }}</p>
+    </div>
+  </div>
+  
+{% endblock %}

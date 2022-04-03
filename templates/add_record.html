@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% block meta %}
+<meta name="description" content="Add a record of a bird you have spotted to your Nature Adventure account.">
+{% endblock %}
 {% block content %}
 <!--ALL THIS CODE CURRENTLY THE SAME AS MINI PROJECT-->
     <h3 class="center-align">Add a New Record</h3>
@@ -10,13 +13,13 @@
                 <div class="input-field col s12">
                     <i class="fas fa-user-circle prefix"></i>
                     <input type="text" id="autocomplete-input" class="autocomplete" name="autocomplete_input">
-                    <label for="autocomplete-input">What did you spot?</label>
+                    <label for="autocomplete-input" class="black-text">What did you spot?</label>
                 </div>
                 <!--INPUT FOR DATE SEEN-->
                 <div class="input-field col s12">
                     <i class="fas fa-calendar-alt prefix"></i>
                     <input id="date_seen" name="date_seen" type="text" class="datepicker" required>
-                    <label for="date_seen">When did you spot it?</label>
+                    <label for="date_seen" class="black-text">When did you spot it?</label>
                 </div>
             </div>
             <div class="row">
@@ -24,7 +27,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-user-circle prefix"></i>
                     <input type="text" id="notes" name="notes" maxlength="250">
-                    <label for="notes">Notes</label>
+                    <label for="notes" class="black-text">Notes</label>
                 </div>
             </div>
             <div class="row">
@@ -41,11 +44,11 @@
                 </div>
             </div>
             <div class="row">
-                <label for="txtLat">
+                <label for="txtLat" class="black-text">
                     Latitude:
                 </label>
                 <input id="txtLat" type="text" name="txtLat" style="color:red" value="28.47399" />
-                <label for="txtLng">
+                <label for="txtLng" class="black-text">
                     Longitude:
                 </label>
                 <input id="txtLng" name="txtLng" type="text" style="color:red" value="77.026489" /><br />

@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+{% block meta %}
+<meta name="description" content="View all the records of bird sightings you have added to your Nature Adventure account.">
+{% endblock %}
 {% block content %}
-<!--ALL THIS CODE CURRENTLY THE SAME AS MINI PROJECT-->
-
 
 <div class="row ">
     <div class="col s12 m8 offset-m2">
@@ -18,7 +19,7 @@
   <div class="col s12 m4 xl2">
     <div class="card medium">
       <div class="card-image center bird-card">
-        <img src="{{ record.pic }}">
+        <img src="{{ record.pic }}" alt="illustration of {{ record.name }}">
         <span class="card-title black-text card-name">{{ record.name }}</span>
       </div>
       <div class="card-content black-text creature-summary ">

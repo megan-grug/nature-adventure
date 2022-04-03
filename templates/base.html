@@ -8,12 +8,12 @@
     integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    {% block styles %}
+    {% block meta %}
     {% endblock %}
     <title>Nature Adventure</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://res.cloudinary.com/megan-jones/image/upload/v1649011819/apple-touch-icon_vnaxty.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/megan-jones/image/upload/v1649011819/favicon-32x32_c5apxa.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/megan-jones/image/upload/v1649011819/favicon-16x16_huajjz.png">
 </head>
 <body>
 
@@ -22,7 +22,7 @@
           <!--main navbar for site viewed on larger screens-->
             <div class="nav-wrapper green darken-3">
               <a href="{{ url_for('get_home') }}" class="brand-logo">Nature Adventure</a>
-              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+              <a href="#" aria-label="hamburger menu for side navigation" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
               <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('get_home') }}">Home</a></li>
                 <li><a href="#">What to See Now</a></li>
@@ -81,7 +81,5 @@
     <script
       src="https://maps.googleapis.com/maps/api/js?key={{google_api}}&v=weekly"
    async defer></script> 
-  {% block scripts %}
-  {% endblock %} 
 </body>
 </html>

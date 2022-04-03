@@ -333,5 +333,22 @@ function customMarker()
        });
    }
 
-  customMarker();
+customMarker();
 
+/*
+function displayCustomMarker()
+{
+  if (window.location.href.indexOf("/get_full_record"))
+  {
+    customMarker();
+  }
+};
+/*
+function displayDraggableMap()
+{
+  if (window.location.href.indexOf("/add_record"))
+  {
+    showLocation();
+  }
+};
+*/

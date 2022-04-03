@@ -1,13 +1,13 @@
 {% extends "base.html" %}
+{% block meta %}
+<meta name="description" content="Nature Adventure: a site for wildlife lovers to learn about birds and record their bird sightings">
+{% endblock %}
 {% block content %}
-<!--main content for home page only-->
 
-
-  <!-- background image -->
-<div class="hero">
-
+<!-- background image -->
+<div >
+  <img class="hero" src="https://res.cloudinary.com/megan-jones/image/upload/v1647698095/vincent-van-zalinge-vUNQaTtZeOo-unsplash_e284bw.jpg" alt="photograph of a kingfisher">
 </div>
-             
 
 <!--creatures grid-->
   <div class="row">
@@ -22,7 +22,7 @@
     <div class="col s12 m4 xl2">
       <div class="card medium">
         <div class="card-image center bird-card">
-          <img src="{{ record.pic }}">
+          <img src="{{ record.pic }}" alt="illustration of {{ record.name }}">
           <span class="card-title black-text card-name">{{ record.name }}</span>
         </div>
         <div class="card-content black-text">
@@ -48,7 +48,7 @@
     <div class="col s12 m4 xl2">
       <div class="card medium">
         <div class="card-image center bird-card">
-          <img src="{{ bird.pic }}">
+          <img src="{{ bird.pic }}" alt="illustration of {{ bird.name }}">
           <span class="card-title black-text card-name">{{ bird.name }}</span>
         </div>
         <div class="card-content black-text">

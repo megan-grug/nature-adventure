@@ -25,9 +25,7 @@ def get_home():
     '''function to produce the home page'''
     recent_records = mongo.db.records.find().sort("date_seen", 1).limit(6)
     month = str(dt.date.today().month)
-    print(month)
     current_month_birds = list(mongo.db.creatures.find({"best_month": month}))
-    print(current_month_birds)
 
     return render_template("index.html", recent_records=recent_records,
                            current_month_birds=current_month_birds)
@@ -40,7 +38,7 @@ def all_uk_birds():
     return render_template("all_uk_birds.html", all_birds=all_birds)
 
 
-@app.route("/search", methods=["GET","POST"])
+@app.route("/search", methods=["GET", "POST"])
 def search():
     '''function to search through all uk birds'''
     query = request.form.get("query")
@@ -133,7 +131,6 @@ def get_full_record(record_id):
 def extend_entry(record_id):
     ''' grab the bird's object id from db'''
     bird = mongo.db.creatures.find_one({"_id": ObjectId(record_id)})
-    print(bird)
     return render_template(
             "extend_entry.html", bird=bird)
 
@@ -229,7 +226,8 @@ def edit_record(record_id):
             flash("Record successfully edited")
             myrecords = list(mongo.db.records.find({"author": username}))
             return render_template(
-                "records.html", username=username, myrecords=myrecords, google_api=google_api)
+                "records.html", username=username, myrecords=myrecords,
+                google_api=google_api)
         else:
             return "No such bird"
     record = mongo.db.records.find_one({"_id": ObjectId(record_id)})

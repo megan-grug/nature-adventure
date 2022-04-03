@@ -1,39 +1,45 @@
-.card-name{
+/* Set the size of the div element that contains the map */
+#map 
+{
+    height: 500px;
+    width: 500px;
+}
+
+.card-name
+{
     font-weight: 500 !important;
 }
 
-.record-buffer{
+.record-buffer
+{
     margin-top: 100px;
 }
 
-.hero{
-    background-image: url("https://res.cloudinary.com/megan-jones/image/upload/v1647698095/vincent-van-zalinge-vUNQaTtZeOo-unsplash_e284bw.jpg");
+.hero
+{
+  /*  background-image: url("https://res.cloudinary.com/megan-jones/image/upload/v1647698095/vincent-van-zalinge-vUNQaTtZeOo-unsplash_e284bw.jpg");*/
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     height: 85vh;
 }
-/*(https://source.unsplash.com/1600x900?bird)*/
 
-.bird-card{
+.bird-card
+{
     width:60%;
     height:60%;
 }
 
-/* Set the size of the div element that contains the map */
-#map {
-    height: 500px;
-    width: 500px;
-  }
-
-.full-record {
+.full-record 
+{
     /*width: 100%;
     height: 100%;*/
     margin-top: 10px;
 }
 
-.center {
+.center 
+{
     display: block;
     margin-left: auto;
     margin-right: auto;
-  }
+}

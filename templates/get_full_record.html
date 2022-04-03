@@ -13,6 +13,12 @@
       <p>Date Seen: {{ current_record.date_seen }}</p>
     </div>
     <div class="col s8 offset-s2">
+      <p>Longitude: <span id="longitude">{{ current_record.location.coordinates[0] }}</span></p>
+    </div>
+    <div class="col s8 offset-s2">
+      <p>Latitude: <span id="latitude">{{ current_record.location.coordinates[1] }}</span></p>
+    </div>
+    <div class="col s8 offset-s2">
       <p>Recorded By: {{ current_record.author }}</p>
     </div>
     <div class="col s8 offset-s2">

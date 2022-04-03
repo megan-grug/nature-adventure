@@ -198,6 +198,7 @@ def add_record():
 @app.route("/edit_record/<record_id>", methods=["GET", "POST"])
 def edit_record(record_id):
     '''gets record and updates it'''
+    google_api = os.environ.get("GOOGLE_API")
     if request.method == "POST":
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
@@ -228,7 +229,7 @@ def edit_record(record_id):
             flash("Record successfully edited")
             myrecords = list(mongo.db.records.find({"author": username}))
             return render_template(
-                "records.html", username=username, myrecords=myrecords)
+                "records.html", username=username, myrecords=myrecords, google_api=google_api)
         else:
             return "No such bird"
     record = mongo.db.records.find_one({"_id": ObjectId(record_id)})

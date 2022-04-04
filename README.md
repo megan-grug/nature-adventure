@@ -385,11 +385,13 @@ Manual testing was undertaken on the following browsers with no noticable differ
 
     - They may be more likely to use a desktop version of the site. It is important that full functionality is available on the desktop version. 
 
-        Testing has shown the site to be fully functional on desktop. 
 
     - They may be less experienced web users and it is therefore important that the site is user friendly and not over complicated. 
 
         This goal has been achieved by setting the site up with a familiar, traditional navigational system which is consistent throughout. I have also added icons to buttons, and tooltips to make the site as intuitive as possible to use. 
+
+        This view of the all birds page as seen on desktop shows how this goal is met. 
+        ![view of the 'all birds' page as seen on a desktop](https://res.cloudinary.com/megan-jones/image/upload/v1649069818/rsz_laptopviewallbirds_nbjkgq.jpg)
 
 
 - This user group is more likely to want and appreciate more advanced features. 
@@ -419,6 +421,10 @@ Manual testing was undertaken on the following browsers with no noticable differ
     - They may be more likely to use the site on mobile at the time of the sighting, so it is important that the mobile version is clear and quick to use on site. 
 
         Manual testing has shown the mobile version of the site to be fully functional and easy to use with clear navigation.
+
+                Testing has shown the site to be fully functional on desktop. This image of the homepage as viewed on mobile shows how clear and simple the layout is, satisfying this goal. 
+
+        ![Image of the home page as viewed on mobile](https://res.cloudinary.com/megan-jones/image/upload/v1649069538/mobileview-homepage_f0hkhg.jpg)
 
     - This group may include children, so it is important to make the site intuitive and not over-complicate it.
 

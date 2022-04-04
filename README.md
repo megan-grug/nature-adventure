@@ -1,10 +1,10 @@
 # Nature Adventure 
 
-![examples of the project site shown on different sized screens](assets/img/responsiveexample.JPG)
+![examples of the project site shown on different sized screens](https://res.cloudinary.com/megan-jones/image/upload/v1649042274/responsive-examples_t4nhgs.jpg)
 
 This is a website allowing nature enthusiasts to register, log-in and start to record their wildlife sightings. 
 
-It is a mobile first, responsive design and the live website can be viewed [here](https://megan-grug.github.io/focus-pod/).
+It is a mobile first, responsive design and the live website can be viewed [here](https://flask-nature-adventure.herokuapp.com).
 
 An example of how the homepage looks on various screensizes is included above.
 
@@ -97,7 +97,6 @@ The website will include the following features:
 - Recently added by other users section        
      
 
-
 ## STRUCTURE PLANE:
 
 The following pages will be included in the project:
@@ -148,7 +147,7 @@ The navigation structure I chose to pursue was based on simplicity to help the u
 - I chose a bright green colour scheme for most of the page components in keeping with the 'nature' theme in place, and I kept to this colour scheme for buttons etc to ensure that they stand out well against the plain background. I have stuck to plain backgrounds because the site involves large amounts of information (for example, the bird record cards) and I felt this stopped the site from looking too busy and cluttered. 
 
 **Typography:**
-- For this project I have chosen plain, professional fonts for the main body of the site to keep the pages visually calming and avoid distractions. I used a heavier font (Urbanist) for the descriptions in the icons leading to the features so as to make it very clear what they do. I chose a more classical font for the quote section to encourage users to take their time to consider the quote.
+- For this project I have chosen plain, professional fonts for the main body of the site to keep the pages visually calming and avoid distractions. I used a subtly rounded font (Dosis) for the section headings in order to add a subtly friendly feel to the site. I chose a plain font for the bird information sections so as not to distract from the information and to ensure it was clear and easy to read. 
 
 **Themes:**
 -   I chose to include illustrations of the birds rather than photographs for several reasons. 
@@ -160,6 +159,39 @@ The navigation structure I chose to pursue was based on simplicity to help the u
     Thirdly, I liked the way that using illustrations reminded me of more traditional bird books and I thought that their inclusion was a nice way of making older birders who may be more used to using such sources feel comfortable moving towards a web based service. 
 
 
+## DATABASE
+
+The site is built on a MongoDB database. 
+
+I used four collection:
+    - Categories
+        This collection includes four documents:
+            - Bird
+            - Mammal
+            - Reptile
+            - Amphibian
+        I included this initially because I had hoped to include animals from all of these categories to give users the opportunity to capture records for every animal in the UK. In the end, I decided to focus on birds only due to time constraints but chose to leave these categories in the database to enable the project to be expanded in future. 
+
+    - Creatures
+        This collection includes a document for each bird in the UK. Each document includes the following fields:
+
+            - animal_name: the name of the animal;
+
+            - latin_name: the latin name of the animal;
+
+            - summary: a brief summary about the animal;
+
+            - fact: I had intended to include a brief fact about each animal, but on reflection decided that this didn't add much value to the users, accordingly not all entries include this field;
+
+            - pic: a link to an image of the animal hosted on Cloudinary;
+
+            - author: this is always admin in the Creatures collection and this helps to keep the pre-loaded records separate from the user records;
+
+        I chose to create this collection essentially as a master list which the information for the user's records would be pulled from. The reasoning behind this was in order to help the user's records to be and look consistent, and to pull through some interesting information as well as a picture for each record they create.
+
+    - Records 
+    - Users
+
 ## TECHNOLOGIES USED
 
 ### Languages:
@@ -169,7 +201,7 @@ The navigation structure I chose to pursue was based on simplicity to help the u
 -   Python
 
 
-### Frameworks, Libraries and Programs:
+### Frameworks, Libraries, Websites and Programs:
 -	**Materialize CSS:**
 Used for consistent styling and responsiveness. 
 
@@ -183,7 +215,7 @@ Used to inject logic inside of HTML templates.
 Used to provide neat interactivity.
 
 -	**Google Fonts:**
-Used to import custom fonts Mate SC and Atkinson Hyperlegible as referred to above. 
+Used to import custom fonts as referred to above. 
 
 -   **Google Maps Javascript API:**
 Used to capture and display maps and location data as part of the bird records. 
@@ -203,8 +235,17 @@ Used to deploy project externally.
 -	**Moqups:**
 Used to create initial wireframes as part of the planning and designing stage. 
 
+-   **Cloudinary:**
+Used to host images and favicons.
+
 -   **Google Developer Tools:**
 Used to inspect each page and function of the site and to check each element and function at a granular level to ensure it is working as planned.
+
+-   **Google Maps JavaScript API:**
+Used to provide the maps and location functionality to be used as part of the bird records.
+
+-   **Google Developer Console:**
+Used to manage the use of the Google Maps JavaScript API. 
 
 -  **Firefox Developre Tools:**
 Used to inspect each page and function of the site and to check each element and function at a granular level to ensure it is working as planned.
@@ -263,20 +304,7 @@ Manual testing was undertaken on the following browsers with no noticable differ
     
     The contrast was not sufficiently high on the labels for the input areas, I fixed this by changing the text colour from grey to black.
 
-- Pending taks counter does not count back up if you untick a to do list task:
-    This is an issue with my code, and I haven't been able to fix it yet but I have left the feature in as all other elements of it work (counting up when tasks are added, counting down when they are deleted or checked off).
-
 - Google Chrome Dev Tools produced the following console issues:
-
-    - DevTools failed to load source map: Could not load content for https://open.scdn.co/cdn/build/embed/embed.275f557d.js.map: HTTP error: status code 404, net::ERR_HTTP_RESPONSE_CODE_FAILURE
-
-    - DevTools failed to load source map: Could not load content for https://open.scdn.co/cdn/build/embed/vendor~embed.0819dcac.js.map: HTTP error: status code 404, net::ERR_HTTP_RESPONSE_CODE_FAILURE
-
-    My research shows that these issues are connected to the embedded Spotify player and are based on an issue at Spotify's end which can only be resolved at Spotify and not on my end. As the page and Spotify function are both loading and operating as expected with no problems, I have left them in and taken no further action. 
-
-    - 8 Error messages of "Indicate whether to send a cookie in a cross-site request by specifying its SameSite attribute. 
-
-    My research shows that these issues are connected to the embedded Spotify player and are based on an issue at Spotify's end which can only be resolved at Spotify and not on my end. As the page and Spotify function are both loading and operating as expected with no problems, I have left them in and taken no further action. 
 
 
 ### USER STORIES TESTING:
@@ -459,9 +487,9 @@ The project was deployed to Heroku as it uses pages based on template inheritanc
 ### Code Credits
 
 
-Code for capturing latitude and longitude is from [Dotnettec](https://dotnettec.com/google-maps-draggable-marker/).
+Code for capturing latitude and longitude from draggable Google maps pin is from [Dotnettec](https://dotnettec.com/google-maps-draggable-marker/).
 
-
+CSS for hero image styling is from [WS3 Schools](https://www.w3schools.com/howto/howto_css_hero_image.asp).
 
 ### Media Credits
 
@@ -491,24 +519,19 @@ Photo by Ruyan Ayten on Unsplash https://unsplash.com/photos/5fhgwrz4Dl4?utm_sou
 
 
 Kingfisher: 
-Photo by Vincent van Zalinge on Unsplash https://unsplash.com/photos/vUNQaTtZeOo?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
-
-- 'dayforest' background image 
-photograph by [Filip Zrnzević](https://unsplash.com/@filipz?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText") on [Unsplash](https://unsplash.com/s/photos/forest?utm_source=unsplash&utm_medium=referral&tm_content=creditCopyText"). Free to use under licence from Unsplash. 
-
-- 'nightforest' background image photograph by [Jon Asleeb](https://unsplash.com/@_leeeeb_?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/forest-night?utm_source=unsplash&utm_medium=referral&tm_content=creditCopyText). 
+Photo by Vincent van Zalinge on [Unsplash](https://unsplash.com/photos/vUNQaTtZeOo?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink).
 
 Free to use under licence from Unsplash. 
 
-Bird illustrations by [Mike Langman](https://mikelangman.co.uk/) obtained from [RSBP website](https://www.rspb.org.uk/).     
+Bird illustrations by [Mike Langman](https://mikelangman.co.uk/) obtained from [RSBP website](https://www.rspb.org.uk/) and I have asked their permission to use this as part of this coursework.  
 
 **Icons:**
 
-- All icons from FontAwesome.
+- All icons from FontAwesome and Materialize CSS. 
 
 **Content:** 
 
-Bird summaries written by the [Royal Society for the Protection of Birds](https://www.rspb.org.uk/). 
+Bird summaries written by the [Royal Society for the Protection of Birds](https://www.rspb.org.uk/) and I have asked their permission to use this as part of this coursework.
 
 
 

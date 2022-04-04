@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function(){
   $(".sidenav").sidenav();
   $('.tooltipped').tooltip();
   $(".datepicker").datepicker({
@@ -70,7 +70,7 @@ $(document).ready(function () {
       "Marsh Harrier": null,
       "Hen Harrier": null,
       "Montagu’s Harrier": null,
-      "Peregrine": null,
+      "Peregrine Falcon": null,
       "Hobby": null,
       "Merlin": null,
       "Kestrel": null,
@@ -245,10 +245,6 @@ $(document).ready(function () {
     },
   });
 });
-
-
-
-
 
 
 let txtLat = null;

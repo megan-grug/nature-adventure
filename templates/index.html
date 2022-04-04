@@ -2,66 +2,69 @@
 {% block meta %}
 <meta name="description" content="Nature Adventure: a site for wildlife lovers to learn about birds and record their bird sightings">
 {% endblock %}
-
+<content>
 {% block content %}
 
-<!-- background image -->
-<div >
-  <img class="hero" src="https://res.cloudinary.com/megan-jones/image/upload/v1647698095/vincent-van-zalinge-vUNQaTtZeOo-unsplash_e284bw.jpg" alt="photograph of a kingfisher">
-</div>
-
-<!--creatures grid-->
-  <div class="row">
-    <div class="col s12">
-      <h3>Recently Added Records</h3>
+  <div class="hero-image" alt="photograph of a kingfisher">
+    <div class="hero-text">
+      <h1>We Are Nature Adventure</h1>
+      <p>A place for nature lovers to record their wildlife sightings</p>
+      <a href="{{ url_for('register') }}" class="waves-effect waves-light btn center">Sign Up For A Free Account!</a>
     </div>
   </div>
 
-  <div class="row">
-  {% for record in recent_records %}
-  <!--first row of creatures - LATEST RECORDS-->
-    <div class="col s12 m4 xl2">
-      <div class="card medium">
-        <div class="card-image center bird-card">
-          <img src="{{ record.pic }}" alt="illustration of {{ record.name }}">
-          <span class="card-title black-text card-name">{{ record.name }}</span>
-        </div>
-        <div class="card-content black-text">
-          <p class="truncate">{{ record.summary }}</p>
-        </div>
-        <div class="card-action">
-          <a href="{{ url_for('get_full_record', record_id=record._id) }}" class="waves-effect waves-light btn center">View Full Record...</a>
-        </div>
+  <!--recently added records grid-->
+    <div class="row">
+      <div class="col s12">
+        <h3>Recently Added Records</h3>
       </div>
     </div>
-  {% endfor %}
-  </div>
 
-  <div class="row">
-    <div class="col s12">
-      <h3>What To Look For This Month</h3>
-    </div>
-  </div>
-
-  <div class="row">
-  {% for bird in current_month_birds %}
-  <!--first row of creatures - WHAT TO SEE NOW-->
-    <div class="col s12 m4 xl2">
-      <div class="card medium">
-        <div class="card-image center bird-card">
-          <img src="{{ bird.pic }}" alt="illustration of {{ bird.name }}">
-          <span class="card-title black-text card-name">{{ bird.name }}</span>
-        </div>
-        <div class="card-content black-text">
-          <p class="truncate">{{ bird.summary }}</p>
-        </div>
-        <div class="card-action">
-          <a href="{{ url_for('extend_entry', record_id=bird._id) }}" class="waves-effect waves-light btn center">Read More...</a>
+    <div class="row">
+    {% for record in recent_records %}
+    <!--first row of creatures - LATEST RECORDS-->
+      <div class="col s12 m4 xl2">
+        <div class="card medium">
+          <div class="card-image center bird-card">
+            <img src="{{ record.pic }}" alt="illustration of {{ record.name }}">
+            <span class="card-title black-text card-name">{{ record.name }}</span>
+          </div>
+          <div class="card-content black-text">
+            <p class="truncate">{{ record.summary }}</p>
+          </div>
+          <div class="card-action">
+            <a href="{{ url_for('get_full_record', record_id=record._id) }}" class="waves-effect waves-light btn center">View Full Record...</a>
+          </div>
         </div>
       </div>
+    {% endfor %}
     </div>
-  {% endfor %}
-  </div>
-  
+
+    <div class="row">
+      <div class="col s12">
+        <h3>What To Look For This Month</h3>
+      </div>
+    </div>
+
+    <div class="row">
+    {% for bird in current_month_birds %}
+    <!--first row of creatures - WHAT TO SEE NOW-->
+      <div class="col s12 m4 xl2">
+        <div class="card medium">
+          <div class="card-image center bird-card">
+            <img src="{{ bird.pic }}" alt="illustration of {{ bird.name }}">
+            <span class="card-title black-text card-name">{{ bird.name }}</span>
+          </div>
+          <div class="card-content black-text">
+            <p class="truncate">{{ bird.summary }}</p>
+          </div>
+          <div class="card-action">
+            <a href="{{ url_for('extend_entry', record_id=bird._id) }}" class="waves-effect waves-light btn center">Read More...</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </content>
 
 {% endblock %}

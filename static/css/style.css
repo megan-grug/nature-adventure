@@ -1,4 +1,34 @@
-/* Set the size of the div element that contains the map */
+body, html {
+    height: 100%;
+
+}
+
+content
+{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+
+/*css code for hero image + hero text from WS3 Schools https://www.w3schools.com/howto/howto_css_hero_image.asp*/
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://res.cloudinary.com/megan-jones/image/upload/v1649039829/anotherkingfisher_vv5xjz.jpg");
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
 #map 
 {
     height: 500px;
@@ -13,15 +43,6 @@
 .record-buffer
 {
     margin-top: 100px;
-}
-
-.hero
-{
-  /*  background-image: url("https://res.cloudinary.com/megan-jones/image/upload/v1647698095/vincent-van-zalinge-vUNQaTtZeOo-unsplash_e284bw.jpg");*/
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 85vh;
 }
 
 .bird-card

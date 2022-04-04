@@ -6,7 +6,7 @@ function customMarker()
      txtLat = document.getElementById("latitude");
      txtLng = document.getElementById("longitude");
 
-     const myLatLng = { lat: parseFloat(txtLat.innerText).toFixed(3), lng: parseFloat(txtLng.innerText).toFixed(3) };
+     const myLatLng = { lat:parseFloat(txtLng.innerText) , lng: parseFloat(txtLat.innerText) };
      console.log(myLatLng);
      const map      = new google.maps.Map(document.getElementById("map"), 
         {
@@ -22,4 +22,4 @@ function customMarker()
        });
    }
 
-customMarker();
+// customMarker();

@@ -350,7 +350,13 @@ Manual testing was undertaken on the following browsers with no noticable differ
     
     The contrast was not sufficiently high on the labels for the input areas, I fixed this by changing the text colour from grey to black.
 
-- Google Chrome Dev Tools produced the following console issues:
+- Google Chrome Dev Tools produced the following console issue on the 'edit_record.html' page:
+
+    custom.js:11 Uncaught ReferenceError: google is not defined
+    at customMarker (custom.js:11:23)
+    at custom.js:25:1
+
+    I have identified that this is an issue with the order in which the scripts are loading. 
 
 
 ### USER STORIES TESTING:

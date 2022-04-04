@@ -156,13 +156,10 @@ def logout():
 def get_full_record(record_id):
     ''' grab the session user's username from db'''
     google_api = os.environ.get("GOOGLE_API")
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
     current_record = mongo.db.records.find_one({"_id": ObjectId(record_id)})
 
-    if session["user"]:
-        return render_template(
-            "get_full_record.html", username=username,
+    return render_template(
+            "get_full_record.html",
             current_record=current_record, google_api=google_api)
 
     return redirect(url_for("login"))
@@ -278,9 +275,10 @@ def edit_record(record_id):
                 "records.html", username=username, myrecords=myrecords,
                 google_api=google_api)
         else:
-            return "No such bird"
+            flash("Sorry - that bird is not included in our database")
+            return render_template("edit_record.html", google_api=google_api)
     record = mongo.db.records.find_one({"_id": ObjectId(record_id)})
-    return render_template("edit_record.html", record=record)
+    return render_template("edit_record.html", record=record, google_api=google_api)
 
 # DELETE RECORD
 

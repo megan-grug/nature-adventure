@@ -246,7 +246,7 @@ $(document).ready(function(){
   });
 });
 
-
+/*
 let txtLat = null;
 let txtLng = null;
 
@@ -269,20 +269,21 @@ function showLocation()
        draggable:true,
        title    :"Drag me!"
        });
-
+ }
 /* code is from: https://dotnettec.com/google-maps-draggable-marker/*/
+/*
       google.maps.event.addListener(marker, 'dragend', function (evt) 
       {
-        txtLat.value = evt.latLng.lat().toFixed(6);
-        txtLng.value = evt.latLng.lng().toFixed(6);
+        txtLat.value = evt.latLng.lat().toFixed(5);
+        txtLng.value = evt.latLng.lng().toFixed(5);
 
         map.panTo(evt.latLng);
 /*end of code from Dotnettec*/
+
+/*
       });
-   }
 
 showLocation();
-
 
 
 function customMarker() 
@@ -305,16 +306,13 @@ function customMarker()
        });
    }
 
-//customMarker();
-
-
 function displayCustomMarker()
 {
   if (window.location.href.indexOf("/get_full_record"))
   {
     customMarker();
   }
-};
+}
 
 displayCustomMarker();
 /*

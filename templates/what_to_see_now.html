@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+{% block meta %}
+<meta name="description" content="View details of all the birds in the UK at Nature Adventure.">
+{% endblock %}
+{% block content %}
+
+<h3>Birds to See in January</h3>
+<div class="row">
+    {% for bird in jan_birds %}
+      <div class="col s12 m4 xl2">
+        <div class="card medium">
+          <div class="card-image center bird-card">
+            <img src="{{ bird.pic }}" alt="illustration of {{ bird.name }}">
+            <span class="card-title black-text card-name">{{ bird.name }}</span>
+          </div>
+          <div class="card-content black-text">
+            <p class="truncate">{{ bird.summary }}</p>
+          </div>
+          <div class="card-action">
+            <a href="{{ url_for('extend_entry', record_id=bird._id) }}" class="waves-effect waves-light btn center">Read More...</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+<h3>Birds to See in February</h3>
+<div class="row">
+    {% for bird in feb_birds %}
+      <div class="col s12 m4 xl2">
+        <div class="card medium">
+          <div class="card-image center bird-card">
+            <img src="{{ bird.pic }}" alt="illustration of {{ bird.name }}">
+            <span class="card-title black-text card-name">{{ bird.name }}</span>
+          </div>
+          <div class="card-content black-text">
+            <p class="truncate">{{ bird.summary }}</p>
+          </div>
+          <div class="card-action">
+            <a href="{{ url_for('extend_entry', record_id=bird._id) }}" class="waves-effect waves-light btn center">Read More...</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+<h3>Birds to See in March</h3>
+<div class="row">
+    {% for bird in march_birds %}
+      <div class="col s12 m4 xl2">
+        <div class="card medium">
+          <div class="card-image center bird-card">
+            <img src="{{ bird.pic }}" alt="illustration of {{ bird.name }}">
+            <span class="card-title black-text card-name">{{ bird.name }}</span>
+          </div>
+          <div class="card-content black-text">
+            <p class="truncate">{{ bird.summary }}</p>
+          </div>
+          <div class="card-action">
+            <a href="{{ url_for('extend_entry', record_id=bird._id) }}" class="waves-effect waves-light btn center">Read More...</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+<h3>Birds to See in April</h3>
+<div class="row">
+    {% for bird in april_birds %}
+      <div class="col s12 m4 xl2">
+        <div class="card medium">
+          <div class="card-image center bird-card">
+            <img src="{{ bird.pic }}" alt="illustration of {{ bird.name }}">
+            <span class="card-title black-text card-name">{{ bird.name }}</span>
+          </div>
+          <div class="card-content black-text">
+            <p class="truncate">{{ bird.summary }}</p>
+          </div>
+          <div class="card-action">
+            <a href="{{ url_for('extend_entry', record_id=bird._id) }}" class="waves-effect waves-light btn center">Read More...</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+<h3>Birds to See in May</h3>
+<div class="row">
+    {% for bird in may_birds %}
+      <div class="col s12 m4 xl2">
+        <div class="card medium">
+          <div class="card-image center bird-card">
+            <img src="{{ bird.pic }}" alt="illustration of {{ bird.name }}">
+            <span class="card-title black-text card-name">{{ bird.name }}</span>
+          </div>
+          <div class="card-content black-text">
+            <p class="truncate">{{ bird.summary }}</p>
+          </div>
+          <div class="card-action">
+            <a href="{{ url_for('extend_entry', record_id=bird._id) }}" class="waves-effect waves-light btn center">Read More...</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+<h3>Birds to See in June</h3>
+<div class="row">
+    {% for bird in june_birds %}
+      <div class="col s12 m4 xl2">
+        <div class="card medium">
+          <div class="card-image center bird-card">
+            <img src="{{ bird.pic }}" alt="illustration of {{ bird.name }}">
+            <span class="card-title black-text card-name">{{ bird.name }}</span>
+          </div>
+          <div class="card-content black-text">
+            <p class="truncate">{{ bird.summary }}</p>
+          </div>
+          <div class="card-action">
+            <a href="{{ url_for('extend_entry', record_id=bird._id) }}" class="waves-effect waves-light btn center">Read More...</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+<h3>Birds to See in July</h3>
+<div class="row">
+    {% for bird in july_birds %}
+      <div class="col s12 m4 xl2">
+        <div class="card medium">
+          <div class="card-image center bird-card">
+            <img src="{{ bird.pic }}" alt="illustration of {{ bird.name }}">
+            <span class="card-title black-text card-name">{{ bird.name }}</span>
+          </div>
+          <div class="card-content black-text">
+            <p class="truncate">{{ bird.summary }}</p>
+          </div>
+          <div class="card-action">
+            <a href="{{ url_for('extend_entry', record_id=bird._id) }}" class="waves-effect waves-light btn center">Read More...</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+<h3>Birds to See in August</h3>
+<div class="row">
+    {% for bird in aug_birds %}
+      <div class="col s12 m4 xl2">
+        <div class="card medium">
+          <div class="card-image center bird-card">
+            <img src="{{ bird.pic }}" alt="illustration of {{ bird.name }}">
+            <span class="card-title black-text card-name">{{ bird.name }}</span>
+          </div>
+          <div class="card-content black-text">
+            <p class="truncate">{{ bird.summary }}</p>
+          </div>
+          <div class="card-action">
+            <a href="{{ url_for('extend_entry', record_id=bird._id) }}" class="waves-effect waves-light btn center">Read More...</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+<h3>Birds to See in September</h3>
+<div class="row">
+    {% for bird in sept_birds %}
+      <div class="col s12 m4 xl2">
+        <div class="card medium">
+          <div class="card-image center bird-card">
+            <img src="{{ bird.pic }}" alt="illustration of {{ bird.name }}">
+            <span class="card-title black-text card-name">{{ bird.name }}</span>
+          </div>
+          <div class="card-content black-text">
+            <p class="truncate">{{ bird.summary }}</p>
+          </div>
+          <div class="card-action">
+            <a href="{{ url_for('extend_entry', record_id=bird._id) }}" class="waves-effect waves-light btn center">Read More...</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+<h3>Birds to See in October</h3>
+<div class="row">
+    {% for bird in oct_birds %}
+      <div class="col s12 m4 xl2">
+        <div class="card medium">
+          <div class="card-image center bird-card">
+            <img src="{{ bird.pic }}" alt="illustration of {{ bird.name }}">
+            <span class="card-title black-text card-name">{{ bird.name }}</span>
+          </div>
+          <div class="card-content black-text">
+            <p class="truncate">{{ bird.summary }}</p>
+          </div>
+          <div class="card-action">
+            <a href="{{ url_for('extend_entry', record_id=bird._id) }}" class="waves-effect waves-light btn center">Read More...</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+<h3>Birds to See in November</h3>
+<div class="row">
+    {% for bird in nov_birds %}
+      <div class="col s12 m4 xl2">
+        <div class="card medium">
+          <div class="card-image center bird-card">
+            <img src="{{ bird.pic }}" alt="illustration of {{ bird.name }}">
+            <span class="card-title black-text card-name">{{ bird.name }}</span>
+          </div>
+          <div class="card-content black-text">
+            <p class="truncate">{{ bird.summary }}</p>
+          </div>
+          <div class="card-action">
+            <a href="{{ url_for('extend_entry', record_id=bird._id) }}" class="waves-effect waves-light btn center">Read More...</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+<h3>Birds to See in December</h3>
+<div class="row">
+    {% for bird in dec_birds %}
+      <div class="col s12 m4 xl2">
+        <div class="card medium">
+          <div class="card-image center bird-card">
+            <img src="{{ bird.pic }}" alt="illustration of {{ bird.name }}">
+            <span class="card-title black-text card-name">{{ bird.name }}</span>
+          </div>
+          <div class="card-content black-text">
+            <p class="truncate">{{ bird.summary }}</p>
+          </div>
+          <div class="card-action">
+            <a href="{{ url_for('extend_entry', record_id=bird._id) }}" class="waves-effect waves-light btn center">Read More...</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

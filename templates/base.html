@@ -25,7 +25,7 @@
               <a href="#" aria-label="hamburger menu for side navigation" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
               <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('get_home') }}">Home</a></li>
-                <li><a href="#">What to See Now</a></li>
+                <li><a href="{{ url_for('what_to_see_now') }}">What to See Now</a></li>
                 <li><a href="{{ url_for('all_uk_birds') }}">All UK Birds</a></li>
                 {% if session.user %}
                 <li><a href="{{ url_for('records', username=session['user']) }}">My Records</a></li>
@@ -42,7 +42,7 @@
           <!--side navbar for site viewed on smaller screens-->
           <ul class="sidenav green darken-3" id="mobile-demo">
             <li><a href="{{ url_for('get_home') }}">Home</a></li>
-            <li><a href="#">What to See Now</a></li>
+            <li><a href="{{ url_for('what_to_see_now') }}">What to See Now</a></li>
             <li><a href="{{ url_for('get_home') }}">All UK Birds</a></li>
             {% if session.user %}
               <li><a href="{{ url_for('records', username=session['user']) }}">My Records</a></li>

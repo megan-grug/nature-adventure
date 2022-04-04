@@ -31,6 +31,31 @@ def get_home():
                            current_month_birds=current_month_birds)
 
 
+@app.route("/what_to_see_now")
+def what_to_see_now():
+    '''function to populate what to see now page with bird records'''
+    jan_birds = list(mongo.db.creatures.find({"best_month": "1"}))
+    feb_birds = list(mongo.db.creatures.find({"best_month": "2"}))
+    march_birds = list(mongo.db.creatures.find({"best_month": "3"}))
+    april_birds = list(mongo.db.creatures.find({"best_month": "4"}))
+    may_birds = list(mongo.db.creatures.find({"best_month": "5"}))
+    june_birds = list(mongo.db.creatures.find({"best_month": "6"}))
+    july_birds = list(mongo.db.creatures.find({"best_month": "7"}))
+    aug_birds = list(mongo.db.creatures.find({"best_month": "8"}))
+    sept_birds = list(mongo.db.creatures.find({"best_month": "9"}))
+    oct_birds = list(mongo.db.creatures.find({"best_month": "10"}))
+    nov_birds = list(mongo.db.creatures.find({"best_month": "11"}))
+    dec_birds = list(mongo.db.creatures.find({"best_month": "12"}))
+
+    return render_template("what_to_see_now.html",
+                           jan_birds=jan_birds, feb_birds=feb_birds,
+                           march_birds=march_birds, april_birds=april_birds,
+                           may_birds=may_birds, june_birds=june_birds,
+                           july_birds=july_birds, aug_birds=aug_birds,
+                           sept_birds=sept_birds, oct_birds=oct_birds,
+                           nov_birds=nov_birds, dec_birds=dec_birds)
+
+
 @app.route("/all_uk_birds")
 def all_uk_birds():
     '''function to populate the all birds page'''

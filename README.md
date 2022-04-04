@@ -356,7 +356,8 @@ Manual testing was undertaken on the following browsers with no noticable differ
     at customMarker (custom.js:11:23)
     at custom.js:25:1
 
-    I have identified that this is an issue with the order in which the scripts are loading. 
+    I have identified that this is an issue with the order in which the scripts are loading, and have tried several things to remedy this such changing the order of the scripts, and using async and defer attributes in the scripts to determine the order in which they will load, unfortunately nothing has consistently worked and occasionally the maps 'dip out' due to this issue. I was not able to identify any other possible solutions to this issue. 
+
 
 
 ### USER STORIES TESTING:

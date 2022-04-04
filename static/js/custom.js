@@ -6,8 +6,7 @@ function customMarker()
      txtLat = document.getElementById("latitude");
      txtLng = document.getElementById("longitude");
 
-     const myLatLng = { lat:parseFloat(txtLng.innerText) , lng: parseFloat(txtLat.innerText) };
-     console.log(myLatLng);
+     const myLatLng = { lat:parseFloat(txtLng.value) , lng: parseFloat(txtLat.value) };
      const map      = new google.maps.Map(document.getElementById("map"), 
         {
          zoom: 4,

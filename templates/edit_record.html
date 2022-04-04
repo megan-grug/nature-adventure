@@ -53,7 +53,7 @@
 {% endblock %}
 
 {% block script %}
-<script src="{{ url_for('static', filename='js/custom.js') }}" defer></script>
-<script src="https://maps.googleapis.com/maps/api/js?key={{google_api}}&v=weekly" async defer></script> 
+<script src="{{ url_for('static', filename='js/custom.js') }}" async></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{google_api}}&v=weekly" async></script> 
 
 {% endblock %}

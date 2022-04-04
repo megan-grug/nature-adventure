@@ -209,6 +209,11 @@ Used to inspect each page and function of the site and to check each element and
 -  **Firefox Developre Tools:**
 Used to inspect each page and function of the site and to check each element and function at a granular level to ensure it is working as planned.
 
+## PROBLEMS IN ADVANCE OF TESTING:
+
+**Google API Key:**
+- I accidentally committed the Google API Key to GitHub by committing my work before hiding it in an environment variable which would not be tracked by GitHub. I fixed this by deleting that API Key on the Google Developer Console and obtaining a new API Key, which I hid in my env.py file which is ignored by GitHub and added to Heroku as a config var. 
+
 ## TESTING:
 
 ### VALIDATOR SERVICES:

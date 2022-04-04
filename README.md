@@ -206,8 +206,31 @@ I used four collection:
 
         I chose to create this collection essentially as a master list which the information for the user's records would be pulled from. The reasoning behind this was in order to help the user's records to be and look consistent, and to pull through some interesting information as well as a picture for each record they create.
 
-    - Records 
+    - Records
+
+        The record collection includes a document for each record of a bird which has been created by a user. The documents in the record collection extend the key information about the relevant animal with the user's own personal information about their sighting. Documents in the 'records' collection have the following fields:
+
+            - name: the animals' name;
+        
+            - latin_name: the animal's latin name;
+        
+            - category_name: Bird/Mammal/Amphibian or Reptile;
+
+            - summary: a short summary of information about the animal;
+
+            - date_seen: the date the user notes that they saw the animal;
+
+            - pic: a picture of the animal hosted on Cloudinary;
+
+            - author: the username of the user who entered the record;
+
+            - location: (optional) latitude and longitude information recording where the animal was seen, stored in GeoJSON format. 
+
+            - notes: (optional) notes recorded by the user about the sighting. 
+
     - Users
+
+        This collection stores only two fields, username and password and it allows users to create an account where they can store and retreive their own records.
 
 ## TECHNOLOGIES USED
 

@@ -18,6 +18,8 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+# HOME PAGE
+
 
 @app.route("/")
 @app.route("/get_home")
@@ -29,6 +31,8 @@ def get_home():
 
     return render_template("index.html", recent_records=recent_records,
                            current_month_birds=current_month_birds)
+
+# WHAT TO SEE NOW PAGE
 
 
 @app.route("/what_to_see_now")
@@ -55,12 +59,16 @@ def what_to_see_now():
                            sept_birds=sept_birds, oct_birds=oct_birds,
                            nov_birds=nov_birds, dec_birds=dec_birds)
 
+# ALL UK BIRDS PAGE
+
 
 @app.route("/all_uk_birds")
 def all_uk_birds():
     '''function to populate the all birds page'''
     all_birds = mongo.db.creatures.find()
     return render_template("all_uk_birds.html", all_birds=all_birds)
+
+# SEARCH FUNCTION
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -69,6 +77,8 @@ def search():
     query = request.form.get("query")
     all_birds = list(mongo.db.creatures.find({"$text": {"$search": query}}))
     return render_template("all_uk_birds.html", all_birds=all_birds)
+
+# REGISTER PAGE
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -95,6 +105,8 @@ def register():
         return redirect(url_for(
             "records", username=session["user"]))
     return render_template("register.html")
+
+# LOG IN PAGE
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -127,6 +139,8 @@ def login():
 
     return render_template("login.html")
 
+# LOGOUT PAGE
+
 
 @app.route("/logout")
 def logout():
@@ -134,6 +148,8 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+# GET FULL RECORD PAGE FOR EXPANDING A RECORD
 
 
 @app.route("/get_full_record/<record_id>")
@@ -151,6 +167,8 @@ def get_full_record(record_id):
 
     return redirect(url_for("login"))
 
+# TO VIEW THE FULL COPY OF AN ADMIN ENTRY
+
 
 @app.route("/extend_entry/<record_id>")
 def extend_entry(record_id):
@@ -158,6 +176,8 @@ def extend_entry(record_id):
     bird = mongo.db.creatures.find_one({"_id": ObjectId(record_id)})
     return render_template(
             "extend_entry.html", bird=bird)
+
+# POPULATE MY RECORDS
 
 
 @app.route("/records/<username>", methods=["GET", "POST"])
@@ -172,6 +192,8 @@ def records(username):
             "records.html", username=username, myrecords=myrecords)
 
     return redirect(url_for("login"))
+
+# ADD A NEW RECORD TO THE DATABASE
 
 
 @app.route("/add_record", methods=["GET", "POST"])
@@ -195,7 +217,6 @@ def add_record():
                 "latin_name": existing_creature["latin_name"],
                 "category_name": existing_creature["category_name"],
                 "summary": existing_creature["summary"],
-                "fact": existing_creature["summary"],
                 "date_seen": request.form.get("date_seen"),
                 "pic": existing_creature["pic"],
                 "author": session["user"],
@@ -212,9 +233,12 @@ def add_record():
                 "records.html", username=username, myrecords=myrecords,
                 google_api=google_api)
         else:
-            return "No such bird"
+            flash("Sorry - that bird is not included in our database")
+            return render_template("add_record.html", google_api=google_api)
     else:
         return render_template("add_record.html", google_api=google_api)
+
+# EDIT RECORD
 
 
 @app.route("/edit_record/<record_id>", methods=["GET", "POST"])
@@ -257,6 +281,8 @@ def edit_record(record_id):
             return "No such bird"
     record = mongo.db.records.find_one({"_id": ObjectId(record_id)})
     return render_template("edit_record.html", record=record)
+
+# DELETE RECORD
 
 
 @app.route('/delete_record/<record_id>')

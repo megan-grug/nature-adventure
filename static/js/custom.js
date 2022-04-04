@@ -22,4 +22,4 @@ function customMarker()
        });
    }
 
-// customMarker();
+customMarker();

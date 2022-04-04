@@ -125,12 +125,29 @@ The following pages will be included in the project:
 
 ## SKELETON PLANE
 
-![wireframe of plan for mobile page structure](/wireframes/mobile_wireframe.png)
+![wireframe of plan for home on mobile](https://res.cloudinary.com/megan-jones/image/upload/v1649049601/rsz_mobile_-_home_page_vwso7q.jpg)
 
-![wireframe of plan for desktop page structure](/wireframes/desktop_wireframe.png)
+![wireframe of plan for what to see when on mobile](https://res.cloudinary.com/megan-jones/image/upload/v1649049655/rsz_mobile-_what_to_see_when_srneei.jpg)
 
+![wireframe of plan for all uk birds on mobile](https://res.cloudinary.com/megan-jones/image/upload/v1649049784/rsz_mobile_-_all_uk_birds_xerxed.jpg)
 
+![wireframe of plan for my records on mobile](https://res.cloudinary.com/megan-jones/image/upload/v1649049868/rsz_mobile_-_my_records_s2ff5n.jpg)
 
+![wireframe of plan for add a record on mobile](https://res.cloudinary.com/megan-jones/image/upload/v1649049939/rsz_mobile_-_add_a_record_vsixvq.jpgs)
+
+![wireframe of plan for login on mobile](https://res.cloudinary.com/megan-jones/image/upload/v1649049994/Mobile_-_Login_oeh08c.png)
+
+![wireframe of plan for homepage on desktop](https://res.cloudinary.com/megan-jones/image/upload/v1649046721/rsz_desktop_-_home_page_ldgzsz.jpg)
+
+![wireframe of plan for what to see when on desktop](https://res.cloudinary.com/megan-jones/image/upload/v1649046811/rsz_desktop_-_what_to_see_when_voy1ry.jpg)
+
+![wireframe of plan for all uk birds on desktop](https://res.cloudinary.com/megan-jones/image/upload/v1649047473/rsz_desktop_-_all_uk_birds_gqr0ud.jpg)
+
+![wireframe of plan for my records on desktop](https://res.cloudinary.com/megan-jones/image/upload/v1649047627/rsz_desktop_-_my_records_plnfkg.jpg)
+
+![wireframe of plan for add a record on desktop](https://res.cloudinary.com/megan-jones/image/upload/v1649047691/rsz_desktop_-_add_new_record_ymtifd.jpg)
+
+![wireframe of plan for login on desktop](https://res.cloudinary.com/megan-jones/image/upload/v1649047749/rsz_desktop_login_dd8iet.jpg)
 
 Before starting to code the website I prepared wireframes showing the planned page structures for mobile and laptop sizes on each page. This helped me to identify the basic page structure I wanted to achieve, and the wireframes show that I was planning to have a consistent layout with the various lists of birds looking the same throughout the website so that users quickly became familiar with the site. 
 
@@ -232,7 +249,7 @@ Used to store and deploy the project.
 -   **Heroku:**
 Used to deploy project externally.
 
--	**Moqups:**
+-	**Balsamiq:**
 Used to create initial wireframes as part of the planning and designing stage. 
 
 -   **Cloudinary:**
@@ -498,25 +515,7 @@ CSS for hero image styling is from [WS3 Schools](https://www.w3schools.com/howto
 The emoji graphic 'Front Facing Baby Chick' is from the open source project Twemoji. The graphics are copyright 2020 Twitter, Inc and other contributors. The graphics are licensed under CC-BY 4.0.
 The various sizes of Favicon were produced and downloaded at favicon.io.
 
-**Photographs:**
-
-Puffins: 
-Photo by <a href="https://unsplash.com/@abago?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Agnieszka Bednarz</a> on <a href="https://unsplash.com/s/photos/bird?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-
-
-Jay: 
-Photo by Dirk van Wolferen on Unsplash https://unsplash.com/photos/63c7mEJbfL4?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
-
-
-Robin: Photo by Jan Meeus on Unsplash https://unsplash.com/photos/7LsuYqkvIUM?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
-
-
-Blue Tit: Photo by Krzysztof Niewolny on Unsplash https://unsplash.com/photos/pTfcnk9WZHA?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
-
-
-Goldfinch: 
-Photo by Ruyan Ayten on Unsplash https://unsplash.com/photos/5fhgwrz4Dl4?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
-
+**Images:**
 
 Kingfisher: 
 Photo by Vincent van Zalinge on [Unsplash](https://unsplash.com/photos/vUNQaTtZeOo?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink).
@@ -537,7 +536,7 @@ Bird summaries written by the [Royal Society for the Protection of Birds](https:
 
 ### Acknowledgements
 
-Thank you to Adam, for keeping me fed whilst I hid away at my computer and to Richard for being a very patient listener. 
+Thank you to Adam, for keeping me fed whilst I hid away at my computer and to Richard for being a very patient listener. Also big thanks to Ger and Scott on the tutor support team who helped to point me in the right direction when I got stuck. 
 
 ## DISCLAIMER
 

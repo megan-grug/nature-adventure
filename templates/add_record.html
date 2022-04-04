@@ -1,11 +1,13 @@
 {% extends "base.html" %}
+
+<!--META INFORMATION FOR ADD RECORD PAGE-->
 {% block meta %}
 <meta name="description" content="Add a record of a bird you have spotted to your Nature Adventure account.">
 {% endblock %}
 
 {% block content %}
-<!--ALL THIS CODE CURRENTLY THE SAME AS MINI PROJECT-->
-    <h3 class="center-align">Add a New Record</h3>
+
+<h3 class="center-align">Add a New Record</h3>
 <div class="container">
     <div class="row">
         <form class="col s12" method="POST" action="{{ url_for('add_record') }}">
@@ -30,13 +32,15 @@
                     <input type="text" id="notes" name="notes" maxlength="250">
                     <label for="notes" class="black-text">Notes</label>
                 </div>
-            </div>
-            <div class="row">
+            </div> 
+            <!--MAP SECTION-->
+            <div class="row">   
                 <div class="col s12 center-align">
                     <div id="map"></div>
                 <input id="location" name="location" type="hidden" value=""/>
                 </div>
             </div>
+            <!--SUBMIT BUTTON-->
             <div class="row">
                 <div class="col s12 center-align">
                     <button type="submit" class="btn-large blue darken-2 text-shadow">
@@ -44,6 +48,7 @@
                     </button>
                 </div>
             </div>
+            <!--LATITUDE + LONGITUDE INFO-->
             <div class="row">
                 <label for="txtLat" class="black-text">Latitude:</label>
                 <input id="txtLat" type="text" name="txtLat" style="color:red" value="28.47399" />

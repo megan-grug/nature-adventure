@@ -17,47 +17,47 @@
 </head>
 
   <body>
-
     <header>
         <nav>
-          <!--main navbar for site viewed on larger screens-->
-            <div class="nav-wrapper green darken-3">
-              <a href="{{ url_for('get_home') }}" class="brand-logo logo">Nature Adventure</a>
-              <a href="#" aria-label="hamburger menu for side navigation" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
-              <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('get_home') }}">Home</a></li>
-                <li><a href="{{ url_for('what_to_see_now') }}">What to See Now</a></li>
-                <li><a href="{{ url_for('all_uk_birds') }}">All UK Birds</a></li>
-                {% if session.user %}
-                <li><a href="{{ url_for('records', username=session['user']) }}">My Records</a></li>
-                <li><a href="{{ url_for('add_record') }}">Add Record</a></li>
-                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-                {% else %}
-                <li><a href="{{ url_for('login') }}">Log In</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
-                {% endif %}
-              </ul>
-            </div>
-          </nav>
-          
-          <!--side navbar for site viewed on smaller screens-->
-          <ul class="sidenav green darken-3" id="mobile-demo">
-            <li><a href="{{ url_for('get_home') }}">Home</a></li>
-            <li><a href="{{ url_for('what_to_see_now') }}">What to See Now</a></li>
-            <li><a href="{{ url_for('all_uk_birds') }}">All UK Birds</a></li>
-            {% if session.user %}
+        <!--main navbar for site viewed on larger screens-->
+          <div class="nav-wrapper green darken-3">
+            <a href="{{ url_for('get_home') }}" class="brand-logo logo">Nature Adventure</a>
+            <a href="#" aria-label="hamburger menu for side navigation" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="{{ url_for('get_home') }}">Home</a></li>
+              <li><a href="{{ url_for('what_to_see_now') }}">What to See Now</a></li>
+              <li><a href="{{ url_for('all_uk_birds') }}">All UK Birds</a></li>
+              {% if session.user %}
               <li><a href="{{ url_for('records', username=session['user']) }}">My Records</a></li>
               <li><a href="{{ url_for('add_record') }}">Add Record</a></li>
               <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-            {% else %}
+              {% else %}
               <li><a href="{{ url_for('login') }}">Log In</a></li>
               <li><a href="{{ url_for('register') }}">Register</a></li>
-            {% endif %}
-          </ul> 
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
+          
+        <!--side navbar for site viewed on smaller screens-->
+        <ul class="sidenav green darken-3" id="mobile-demo">
+          <li><a href="{{ url_for('get_home') }}">Home</a></li>
+          <li><a href="{{ url_for('what_to_see_now') }}">What to See Now</a></li>
+          <li><a href="{{ url_for('all_uk_birds') }}">All UK Birds</a></li>
+          {% if session.user %}
+            <li><a href="{{ url_for('records', username=session['user']) }}">My Records</a></li>
+            <li><a href="{{ url_for('add_record') }}">Add Record</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+          {% else %}
+            <li><a href="{{ url_for('login') }}">Log In</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+          {% endif %}
+        </ul> 
     </header>
 
     <section>
-      <!--flash messages COPIED CODE FROM MINI PROJECT-->
+      
+      <!--FLASH MESSAGES-->
       {% with messages = get_flashed_messages() %}
         {% if messages %}
           {% for message in messages %}
@@ -79,8 +79,6 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" ></script>
     <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key={{google_api}}&v=weekly"
-   async defer></script> 
+    <script src="https://maps.googleapis.com/maps/api/js?key={{google_api}}&v=weekly" async defer></script> 
 </body>
 </html>

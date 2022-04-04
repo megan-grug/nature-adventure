@@ -1,12 +1,16 @@
 {% extends "base.html" %}
+
+<!--META INFORMATION FOR RECORD EDITING PAGES-->
 {% block meta %}
 <meta name="description" content="Edit a record of a bird you have recorded in your Nature Adventure account.">
 {% endblock %}
 
 {% block content %}
-<!--ALL THIS CODE CURRENTLY THE SAME AS MINI PROJECT-->
+
+    <!--MAIN HEADING-->
     <h3 class="center-align">Edit A Record</h3>
 
+    <!--EDIT FORM-->
     <div class="row">
         <form class="col s12" method="POST" action="{{ url_for('edit_record', record_id=record._id) }}">
             <div class="row">
@@ -25,7 +29,6 @@
             <div class="row">
                 <div class="col s12 center-align">
                     <div id="map"></div>
-                <input id="location" name="location" type="hidden" value=""/>
                 </div>
             </div>
             <div class="row">
@@ -34,18 +37,13 @@
                         Edit Record <i class="fas fa-plus-square right"></i>
                     </button>
                     <a href="{{ url_for('get_full_record', record_id=record._id) }}" class="btn-large red text-shadow">Cancel Changes</a>
-                    </button>
                 </div>
             </div>
             <div class="row">
-                <label for="latitude">
-                    Latitude:
-                </label>
-                <input id="txtLat" type="text" name="txtLat" style="color:red" value="28.47399" />
-                <label for="longitude">
-                    Longitude:
-                </label>
-                <input id="txtLng" name="txtLng" type="text" style="color:red" value="77.026489" /><br />
+                <input id="txtLat" type="text" name="txtLat" style="color:red" value="28.47399"/>
+                <label for="txtLat">Latitude:</label>
+                <label for="txtLng">Longitude:</label>
+                <input id="txtLng" name="txtLng" type="text" style="color:red" value="77.026489"/><br />
             </div>
         </form>
     </div>

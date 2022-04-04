@@ -1,36 +1,48 @@
 {% extends "base.html" %}
+
+<!--META INFO FOR FULL RECORD PAGE-->
 {% block meta %}
 <meta name="description" content="View the full details of a record you have added to your Nature Adventure account.">
 {% endblock %}
+
 {% block content %}
 
+<!--DISPLAY FULL VERSION OF USER RECORD-->
 <div class="row record-buffer">
+    <!--RECORD IMAGE AND NAME-->
     <div class="col s8 offset-s2">
-      <img src="{{ current_record.pic }}" class="center responsive-img" alt="illustration of {{ current_record.name }}">
-      <span class="card-title black-text card-name">{{ current_record.name }}</span>
-      <p>{{ current_record.summary }}</p>
+        <img src="{{ current_record.pic }}" class="center responsive-img" alt="illustration of {{ current_record.name }}">
+        <span class="card-title black-text card-name">{{ current_record.name }}</span>
+        <p>{{ current_record.summary }}</p>
     </div>
+    <!--GOOGLE MAPS-->
     <div class="col s8 offset-s2 center" id="map">
     </div>
+    <!--DATE SEEN-->
     <div class="col s8 offset-s2">
-      <p>Date Seen: {{ current_record.date_seen }}</p>
+        <p>Date Seen: {{ current_record.date_seen }}</p>
     </div>
+    <!--LONGITUDE-->
     <div class="col s8 offset-s2">
-      <p>Longitude: <span id="longitude">{{ current_record.location.coordinates[1] }}</span></p>
+        <p>Longitude: <span id="longitude">{{ current_record.location.coordinates[1] }}</span></p>
     </div>
+    <!--LATITUDE-->
     <div class="col s8 offset-s2">
-      <p>Latitude: <span id="latitude">{{ current_record.location.coordinates[0] }}</span></p>
+        <p>Latitude: <span id="latitude">{{ current_record.location.coordinates[0] }}</span></p>
     </div>
+    <!--AUTHOR-->
     <div class="col s8 offset-s2">
-      <p>Recorded By: {{ current_record.author }}</p>
+        <p>Recorded By: {{ current_record.author }}</p>
     </div>
+    <!--NOTES-->
     <div class="col s8 offset-s2">
-      <p>Notes: {{ current_record.notes }}</p>
+        <p>Notes: {{ current_record.notes }}</p>
     </div>
+    <!--EDIT + DELETE BUTTONS (IF AUTHOR)-->
     <div class="col s8 offset-s2">
       {% if session.user|lower == current_record.author|lower %}
-      <a href="{{ url_for('edit_record', record_id=current_record._id ) }}" class="waves-effect waves-light btn">Edit</a>
-      <a href="{{ url_for('delete_record', record_id=current_record._id ) }}" class="waves-effect waves-light btn">Delete</a>
+        <a href="{{ url_for('edit_record', record_id=current_record._id ) }}" class="waves-effect waves-light btn">Edit</a>
+        <a href="{{ url_for('delete_record', record_id=current_record._id ) }}" class="waves-effect waves-light btn">Delete</a>
       {% endif %}
     </div>
   </div>

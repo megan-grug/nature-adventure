@@ -1,10 +1,13 @@
 {% extends "base.html" %}
+
+<!--META INFORMATION FOR EXTENDED ADMIN ENTRY PAGES-->
 {% block meta %}
 <meta name="description" content="View the full details of {{ bird.animal_name }} at Nature Adventure.">
 {% endblock %}
 
 {% block content %}
 
+<!--EXTENDED ANIMAL ENTRY-->
 <div class="row record-buffer">
     <div class="col s8 offset-s2">
       <img src="{{ bird.pic }}" class="center responsive-img" alt="illustration of {{ bird.name }}">

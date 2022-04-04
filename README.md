@@ -1,6 +1,6 @@
 # Nature Adventure 
 
-![examples of the project site shown on different sized screens](https://res.cloudinary.com/megan-jones/image/upload/v1649042274/responsive-examples_t4nhgs.jpg)
+![examples of the project site shown on different sized screens](https://res.cloudinary.com/megan-jones/image/upload/v1649051927/responsive-examples_aamv3t.jpg)
 
 This is a website allowing nature enthusiasts to register, log-in and start to record their wildlife sightings. 
 
@@ -300,7 +300,13 @@ Used to inspect each page and function of the site and to check each element and
 ### VALIDATOR SERVICES:
 - **W3C HTML Validator:**
     
-    The code passes through the W3C Validator without raising any errors. 
+    - All pages through the W3C HTML Validator without raising any errors, save for the following warning which appears on all pages:
+
+        - Warning: Section lacks heading. Consider using h2-h6 elements to add identifying headings to all sections, or else use a div element instead for any cases where no heading is needed.
+        I have reviewed this and have not taken any further action, as the page does in fact have a H4 header inherited from line 65 of base.html, however it is not visible as it is between jinja tags. The section always has a h4 heading whenever it is displayed. 
+
+
+    The code passes through the W3C CSS Validator without raising any errors. 
 
 - **W3C CSS Validator:**
     
